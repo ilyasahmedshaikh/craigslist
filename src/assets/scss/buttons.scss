@@ -1,0 +1,48 @@
+.rounded-btn {
+    border: 1px solid $blue;
+    padding: 8px;
+    background: $default;
+    width: 170px;
+    height: auto;
+    cursor: pointer;
+    color: $white;
+    border-radius: 50px;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.outline-btn {
+  border: 1px solid $blue;
+  padding: 8px;
+  background: $white;
+  width: 170px;
+  height: auto;
+  cursor: pointer;
+  color: $blue;
+  border-radius: 50px;
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.chip-icon-btn {
+  color: $white;
+  font-size: 16px;
+  border: 1px solid $blue;
+  background: $default;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  width: 100px;
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  i {
+    font-size: 15px;
+    padding-right: 8px;
+    color: $white;
+    position: relative;
+    top: 4px;
+  }
+}
