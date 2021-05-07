@@ -1,1 +1,26 @@
-<p>header works!</p>
+<div class="header py-3">
+  <div class="container">
+      <div class="toggleContainer" (click)="toggleMenu()" [ngClass]="{'change': toggleButton}">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+      </div>
+  </div>
+</div>
+
+<div class="sidebar side" [ngClass]="{'show': sidebar}">
+  <ul>
+      <li>
+          <a (click)="toggleMenu()" routerLink="/auth/login">
+              Login
+          </a>
+      </li>
+
+
+      <div class="bottom-thing">
+          <a href="tel:+923337148980"><i class="fas fa-question-circle"></i> Need Help ?</a>
+      </div>
+  </ul>
+</div>
+
+<div class="fade-area"></div>
