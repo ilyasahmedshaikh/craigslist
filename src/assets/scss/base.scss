@@ -1,7 +1,7 @@
 @import './colours';
 
 body {
-    margin: 0 !important;
+    margin: 0;
     overflow-x: hidden !important;
     font-family: 'Montserrat', sans-serif !important;
 }
@@ -57,10 +57,10 @@ input[type="color"]:focus,
     box-shadow: none;
 }
 
-.main-header-space {
-    position: relative;
-    top: 55px;
-}
+// .main-header-space {
+//     position: relative;
+//     top: 55px;
+// }
 
 .loading {
     width: 200px;
