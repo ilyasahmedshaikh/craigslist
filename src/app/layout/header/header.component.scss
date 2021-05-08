@@ -88,11 +88,16 @@
               top: 70px;
               left: 151px;
             }
+            .new{
+              position: absolute;
+              top: 70px;
+              left: 151px;
+            }
       }
   }
   &.side {
       position: fixed;
-      width: 30%;
+      width: 25%;
       background: linear-gradient(60deg, #29323c 0%, #485563 100%);
       color: #ffffff;
       left: -50%;
