@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="login">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-4">
+        <form class="pt-3" [formGroup]="programForm">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="Email" formControlName="email">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Password" formControlName="password">
+            </div>
+
+            <div class="row forgot-checkout pt-2">
+                <div class="col-6">
+                    <div class="form-group checkout form-check">
+                        <input type="checkbox" class="form-check-input">
+                        <label class="form-check-label">Check me out</label>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="forgot-btn">
+                        <a routerLink="/auth/forgot-password">Forgot Password?</a>
+                    </div>
+                </div>
+            </div>
+
+            <a class="rounded-btn">Login</a>
+        </form>
+
+        <div class="new-account text-center">
+          <span>Don't have an Account?</span>
+          <a routerLink="/auth/create-account">
+            Create Account
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

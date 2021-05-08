@@ -1,0 +1,41 @@
+@import '/src/styles.scss';
+
+.signup {
+	padding: 6% 0px;
+	.conditions {
+		padding-top: 5%;
+		p {
+			font-size: 15px;
+			color:  $lightDefault;
+			text-align: center;
+      a {
+        color: $default;
+        text-decoration: none;
+        font-weight: 600;
+      }
+		}
+	}
+  .login-account {
+    padding-top: 12%;
+    span {
+      color: $lightDefault;
+      font-size: 15px;
+    }
+    a {
+      font-weight: 600;
+      font-size: 16px;
+      padding-left: 2px;
+      color: $default;
+    }
+  }
+}
+
+@media screen and (max-width: 600px)
+{
+  .signup{
+    .rounded-btn{
+      width: 100%;
+      height: auto;
+    }
+  }
+}

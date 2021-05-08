@@ -1,0 +1,52 @@
+@import '/src/styles.scss';
+
+.login {
+	padding: 5% 0;
+  .forgot-checkout {
+    .forgot-btn {
+      a {
+        color: $default;
+        font-size: 17px;
+      }
+    }
+  }
+	.forgot-btn {
+    float: right;
+		a {
+			color: $default;
+			font-size: 17px;
+		}
+	}
+  .new-account {
+    padding-top: 35px;
+    span {
+      color: $lightDefault;
+      font-size: 15px;
+    }
+    a {
+      font-weight: 600;
+      font-size: 16px;
+      padding-left: 2px;
+      color: $default;
+    }
+  }
+}
+
+.form-group {
+  label {
+    &.form-check-label {
+      color: #007bff;
+      font-size: 17px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px)
+{
+  .login{
+    .rounded-btn{
+      width: 100%;
+      height: auto;
+    }
+  }
+}
