@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./components/auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'posting',
+    loadChildren: () => import('./components/posting/posting.module').then(m => m.PostingModule)
   }
 ];
 
