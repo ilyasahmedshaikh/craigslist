@@ -25,6 +25,13 @@
   transition: 0.5s;
 }
 
+.header p{
+  float: right;
+  color: white;
+  font-weight: 500;
+  font-size: 17px;
+}
+
 .change {
   .bar1 {
       -webkit-transform: rotate(-45deg) translate(-6px, 6px);
@@ -174,11 +181,6 @@
 }
 
 
-
-
-
-
-
 @media screen and (max-width: 1920px)
 {
 
@@ -186,7 +188,19 @@
 
 @media screen and (max-width: 768px)
 {
-
+  .sidebar{
+    ul{
+      padding-top: 25%;
+      li{
+        a{
+          font-size: 15px;
+        }
+      }
+    }
+    &.side{
+      width: 35%;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -203,6 +217,9 @@
           }
         }
       }
+    }
+    &.side{
+      width: 100%;
     }
   }
 }
