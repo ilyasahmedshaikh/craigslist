@@ -1,0 +1,19 @@
+@import '/src/styles.scss';
+
+.search-bar {
+  position: relative;
+  input {
+    border-radius: 20px;
+    width: 100%;
+    padding: 5px 50px 5px 20px;
+    border: 1px solid #ccc;
+  }
+  i{
+    position: absolute;
+    top: 9px;
+    right: 20px;
+    font-size: 18px;
+    color: #ccc;
+    cursor: pointer;
+  }
+}
