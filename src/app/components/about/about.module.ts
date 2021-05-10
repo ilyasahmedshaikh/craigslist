@@ -10,10 +10,13 @@ import { ScamComponent } from './scam/scam.component';
 import { SafetyComponent } from './safety/safety.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { CompanyAboutComponent } from './company-about/company-about.component';
+import { OpenSourceComponent } from './open-source/open-source.component';
+import { BestOfCompanyComponent } from './best-of-company/best-of-company.component';
 
 
 @NgModule({
-  declarations: [AboutComponent, HelpComponent, ScamComponent, SafetyComponent, TermsOfUseComponent, PrivacyPolicyComponent],
+  declarations: [AboutComponent, HelpComponent, ScamComponent, SafetyComponent, TermsOfUseComponent, PrivacyPolicyComponent, CompanyAboutComponent, OpenSourceComponent, BestOfCompanyComponent],
   imports: [
     CommonModule,
     AboutRoutingModule,
