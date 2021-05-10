@@ -7,7 +7,9 @@ import { SafetyComponent } from './safety/safety.component';
 import { ScamComponent } from './scam/scam.component';
 import { TermsOfUseComponent } from './terms-of-use/terms-of-use.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
-
+import { BestOfCompanyComponent } from './best-of-company/best-of-company.component';
+import { CompanyAboutComponent } from './company-about/company-about.component';
+import { OpenSourceComponent } from './open-source/open-source.component';
 
 const routes: Routes = [
   {
@@ -37,6 +39,18 @@ const routes: Routes = [
       {
         path: 'privacy-policy',
         component: PrivacyPolicyComponent
+      },
+      {
+        path: 'best-of',
+        component: BestOfCompanyComponent
+      },
+      {
+        path: 'company-about',
+        component: CompanyAboutComponent
+      },
+      {
+        path: 'open-source',
+        component: OpenSourceComponent
       }
     ]
   }
