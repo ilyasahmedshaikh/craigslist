@@ -1,5 +1,11 @@
 @import '/src/styles.scss';
 
 .help {
-  padding: 20px 0;
+  padding: 30px 0;
+}
+
+.help .card-header a{
+  font-weight: 600;
+  font-size: 17px;
+  color: #303030;
 }

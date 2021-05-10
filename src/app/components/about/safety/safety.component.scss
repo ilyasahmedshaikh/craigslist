@@ -1,0 +1,54 @@
+@import '/src/styles.scss';
+
+.safety{
+  padding: 30px 0;
+}
+
+.safety .pages{
+  text-align: center;
+}
+
+.safety .pages a{
+  font-size: 14px;
+  padding: 5px 20px;
+  margin-right: 8px;
+}
+
+.safety .safety-inner h3{
+  font-weight: bold;
+}
+
+.safety .safety-inner a{
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.safety .safety-inner span{
+  font-weight: 100;
+  font-size: 15px;
+  color: #404040;
+}
+
+.safety .safety-inner li{
+  padding-top: 5px;
+}
+
+
+
+@media screen and (max-width: 1920px)
+{
+
+}
+
+@media screen and (max-width: 768px)
+{
+
+}
+
+@media only screen and (max-width: 600px) {
+  .safety .pages{
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+}
