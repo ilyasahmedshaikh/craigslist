@@ -1,0 +1,65 @@
+@import '/src/styles.scss';
+
+.privacy-policy {
+  .top-bar {
+    .heading {
+      padding-top: 15px;
+      h3 {
+        color: black;
+        font-size: 22px;
+        font-weight: 500;
+      }
+      span {
+        color: #ccc;
+        font-size: 12px;
+      }
+    }
+    .btns {
+      display: flex;
+      padding-top: 12px;
+      a {
+        text-align: center;
+        font-size: 12px;
+        &.chip-icon-btn {
+          padding: 4px 13px;
+         }
+      }
+    }
+    .sub-head {
+      p {
+        padding-top: 20px;
+        font-size: 15px;
+        color: black;
+      }
+    }
+  }
+  .list-content {
+    padding-top: 10px;
+    h6 {
+      &.heading {
+        color: black;
+        font-size: 17px;
+        font-weight: 600;
+        padding-bottom: 20px;
+        padding-top: 18px;
+      }
+    }
+    p {
+      &.sub-head {
+        font-size: 15px;
+        color: black;
+        padding-bottom: 10px;
+      }
+    }
+    ul {
+      li {
+        p {
+          &.sub-text {
+            color: black;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
