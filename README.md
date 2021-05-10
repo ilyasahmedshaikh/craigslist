@@ -1,2 +1,2 @@
 # craigslist
-craigslist web app
+craigslist web app (Angular)
