@@ -1,0 +1,19 @@
+@import '../../../../styles.scss';
+
+.add-category {
+  .categories {
+    padding-top: 5%;
+    p {
+      color: black;
+      font-size: 15px;
+      padding-bottom: 12px;
+    }
+    .choose-category {
+      padding-top: 2%;
+      .next-btn {
+        padding-top: 28px;
+        float: left;
+      }
+    }
+  }
+}

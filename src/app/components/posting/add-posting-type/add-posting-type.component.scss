@@ -1,0 +1,18 @@
+@import '../../../../styles.scss';
+
+.add-posting-type {
+  .add-posting {
+    padding-top: 5%;
+    p {
+      color: black;
+      font-size: 15px;
+    }
+    .choose-posting-type {
+      padding-top: 3%;
+      .next-btn {
+        padding-top: 28px;
+        float: left;
+      }
+    }
+  }
+}
