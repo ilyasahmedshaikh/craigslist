@@ -1,8 +1,50 @@
 @import '/src/styles.scss';
 
+.view-posting .top-bar {
+  background-color: #eeeeee;
+  padding: 15px 0 0 0;
+}
+
+.view-posting .view-posting-content{
+  padding: 30px 0;
+}
+
+.view-posting .category a{
+  color: black;
+  font-weight: 500;
+}
+
+.view-posting .show-category i{
+  padding-right: 5px;
+  font-size: 15px;
+}
+
+// .view-posting .show-category .btns a.rounded-btn{
+//   display: flex;
+//   font-size: 12px;
+//   color: white;
+// }
+
 .view-posting {
-  .top-bar {
-    background-color: #eeeeee;
-    padding: 15px 0 0 0;
+  .show-category {
+    .btns {
+      display: flex;
+      a {
+        &.rounded-btn {
+          font-size: 12px;
+          color: white;
+        }
+      }
+    }
   }
 }
+
+.view-posting .posting-inner{
+  padding-top: 30px;
+}
+
+.view-posting .posting-inner a{
+  float: right;
+}
+
+
