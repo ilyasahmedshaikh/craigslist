@@ -1,0 +1,79 @@
+@import '/src/styles.scss';
+
+.scam{
+  padding: 30px 0;
+}
+
+.scam .pages{
+  text-align: center;
+}
+
+.scam .pages a{
+  font-size: 14px;
+  padding: 5px 20px;
+  margin-right: 8px;
+}
+
+.scam .pages a:hover{
+  color: black;
+  transition: 0.5s;
+  opacity: 0.5s;
+}
+
+.scam .description{
+  padding-top: 5%;
+}
+
+.scam .description h3{
+  font-weight: bold;
+}
+
+.scam .description h6{
+  padding-top: 20px;
+  font-weight: 600;
+}
+
+.scam .description span{
+  font-weight: 100;
+  font-size: 15px;
+  color: #404040;
+}
+
+.scam .description li{
+  padding-top: 5px;
+}
+
+.scam .description a{
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.scam .description p.mini{
+  font-size: 13px;
+}
+
+
+@media screen and (max-width: 1920px)
+{
+
+}
+
+@media screen and (max-width: 768px)
+{
+
+}
+
+@media only screen and (max-width: 600px) {
+  .scam .pages{
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+}
+
+
+
+
+
+
+
