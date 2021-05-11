@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -11,12 +13,31 @@ export class HeaderComponent implements OnInit {
   sidebar: boolean = false;
   fadeSection: boolean = false;
 
-  constructor() { }
+  pageTitle: any = "";
+  currentURL: string = "";
+
+
+  constructor(
+    location: Location,
+    router: Router
+  ) {
+    router.events.subscribe((val) => {
+      if(location.path() != ''){
+        this.currentURL = location.path();
+
+        let spliter = this.currentURL.split('/');
+        this.pageTitle = spliter[spliter.length-1];
+        this.pageTitle = this.pageTitle.replaceAll("-", " ");
+      } else {
+        this.pageTitle = 'Home';
+      }
+    });
+  }
 
   ngOnInit(): void {
   }
 
-  toggleMenu() {
+  toggleMenu(event) {
     // animating icon
     this.toggleButton = !this.toggleButton;
 
