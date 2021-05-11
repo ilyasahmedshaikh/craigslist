@@ -1,4 +1,4 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
 .header {
   background: linear-gradient(60deg, #29323c 0%, #485563 100%);
@@ -16,7 +16,9 @@
   z-index: 3;
 }
 
-.bar1, .bar2, .bar3 {
+.bar1,
+.bar2,
+.bar3 {
   border-radius: 10px;
   width: 35px;
   height: 4px;
@@ -25,131 +27,129 @@
   transition: 0.5s;
 }
 
-.header p{
-  float: right;
-  color: white;
-  font-weight: 500;
-  font-size: 17px;
+.header {
+  p {
+    color: white;
+    font-weight: 500;
+    font-size: 17px;
+    position: absolute;
+    right: 15px;
+  }
 }
 
 .change {
   .bar1 {
-      -webkit-transform: rotate(-45deg) translate(-6px, 6px);
-      transform: rotate(-45deg) translate(-6px, 6px);
-      background-color: #ffffff;
-    }
-    .bar2 {opacity: 0;}
-    .bar3 {
-      -webkit-transform: rotate(45deg) translate(-8px, -8px);
-      transform: rotate(45deg) translate(-8px, -8px);
-      background-color: #ffffff;
-    }
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+    background-color: #ffffff;
+  }
+  .bar2 {
+    opacity: 0;
+  }
+  .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+    background-color: #ffffff;
+  }
 }
 
-.sidebar{
+.sidebar {
   a {
-      text-decoration: none;
-      color: #ffffff;
-      text-transform: capitalize;
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: capitalize;
   }
   ul {
-      list-style: none;
-      margin-bottom: 0;
-      padding-left: 0;
-      padding: 17% 0 0 5%;
-      height: 85vh;
-      max-height: 85vh;
-      overflow-y: auto;
-      li {
-          padding: 2px 0;
-          a {
-              text-decoration: none;
-              color: #ffffff;
-              font-size: 12px;
-              transition: 0.3s;
-              &:hover {
-                  color: orange;
-              }
-              img {
-                  width: 40px;
-                  background: #485563;
-                  padding: 2px;
-                  border-radius: 50%;
-                  margin: 0 10px 0 0;
-              }
-              &.create-btn{
-                font-size: 16px;
-                font-weight: 500;
-              }
-            }
-            i{
-              font-size: 13px;
-              padding-right: 6px;
-            }
-            .logo{
-              font-weight: bold;
-              font-size: 25px;
-            }
-            .locate{
-              position: absolute;
-              top: 70px;
-              left: 151px;
-            }
-            .new{
-              position: absolute;
-              top: 70px;
-              left: 151px;
-            }
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding: 17% 0 0 5%;
+    height: 85vh;
+    max-height: 85vh;
+    overflow-y: auto;
+    li {
+      padding: 2px 0;
+      a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 12px;
+        transition: 0.3s;
+        &:hover {
+          color: orange;
+        }
+        img {
+          width: 40px;
+          background: #485563;
+          padding: 2px;
+          border-radius: 50%;
+          margin: 0 10px 0 0;
+        }
+        &.create-btn {
+          font-size: 16px;
+          font-weight: 500;
+        }
       }
+      i {
+        font-size: 13px;
+        padding-right: 6px;
+      }
+      .logo {
+        font-weight: bold;
+        font-size: 25px;
+      }
+      .locate {
+        position: absolute;
+        top: 70px;
+        left: 151px;
+      }
+      .new {
+        position: absolute;
+        top: 70px;
+        left: 151px;
+      }
+    }
   }
   &.side {
-      position: fixed;
-      width: 25%;
-      background: linear-gradient(60deg, #29323c 0%, #485563 100%);
-      color: #ffffff;
-      left: -50%;
-      top: 0;
-      bottom: 0;
-      z-index: 16;
-      transition: 0.8s;
-      &.show{
-          left: 0;
-      }
+    position: fixed;
+    width: 25%;
+    background: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    color: #ffffff;
+    left: -50%;
+    top: 0;
+    bottom: 0;
+    z-index: 16;
+    transition: 0.8s;
+    &.show {
+      left: 0;
+    }
   }
   &.flap {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(60deg, #29323c 0%, #485563 100%);
-      color: #ffffff;
-      top: -100%;
-      z-index: 1;
-      transition: 0.8s;
-      &.show{
-          top: 0;
-      }
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    color: #ffffff;
+    top: -100%;
+    z-index: 1;
+    transition: 0.8s;
+    &.show {
+      top: 0;
+    }
   }
-  .bottom-thing{
-      position: absolute;
-      bottom: 5%;
+  .bottom-thing {
+    position: absolute;
+    bottom: 5%;
   }
 }
 
 .profile {
   position: relative;
   img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .sidebar.side {
-      width: 100%;
-      left: -100%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
   }
 }
 
@@ -163,8 +163,9 @@
   background: #ffffff;
   opacity: 0.5;
   transition: 0.5s;
-  &.show{
-      display: block;
+  z-index: 1;
+  &.show {
+    display: block;
   }
 }
 
@@ -180,46 +181,43 @@
   right: 5%;
 }
 
-
-@media screen and (max-width: 1920px)
-{
-
+@media screen and (max-width: 1920px) {
 }
 
-@media screen and (max-width: 768px)
-{
-  .sidebar{
-    ul{
+@media screen and (max-width: 768px) {
+  .sidebar {
+    ul {
       padding-top: 25%;
-      li{
-        a{
+      li {
+        a {
           font-size: 15px;
         }
       }
     }
-    &.side{
+    &.side {
       width: 35%;
     }
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .sidebar{
-    ul{
+  .sidebar {
+    ul {
       padding-top: 20%;
-      li{
+      li {
         padding: 5px 0;
-        a{
+        a {
           font-size: 15px;
-          &.create-btn{
+          &.create-btn {
             font-size: 18px;
             font-weight: 500;
           }
         }
       }
     }
-    &.side{
+    &.side {
       width: 100%;
+      left: -100%;
     }
   }
 }

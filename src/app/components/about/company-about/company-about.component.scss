@@ -1,0 +1,26 @@
+@import '/src/styles.scss';
+
+.about-us {
+  padding: 30px 0;
+  .card {
+    .card-header {
+      font-weight: 600;
+      font-size: 17px;
+      color: black;
+    }
+    .card-body {
+      .item {
+        padding-top: 16px;
+        a {
+          color: #007bff;
+          cursor: pointer;
+          font-size: 16px;
+        }
+        p {
+          color: black;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

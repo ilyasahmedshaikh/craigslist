@@ -1,1 +1,179 @@
-<p>create-a-posting works!</p>
+<div class="create-a-posting">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="posting-form">
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-3">
+                    <label>Posting Title</label>
+                    <input type="text" class="form-control" placeholder="Posting Title">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Price</label>
+                    <input type="number" class="form-control" placeholder="$ Price">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>City or Neighborhood</label>
+                    <input type="text" class="form-control" placeholder="City or Neighborhood">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Postal Code</label>
+                    <input type="text" class="form-control" placeholder="Postal Code">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" rows="3" placeholder="Type your description here..."></textarea>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="card my-4">
+            <div class="card-body">
+              <form>
+                <h6>Posting Details</h6>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label>Make / Manufacturer</label>
+                    <input type="text" class="form-control" placeholder="Make / Manufacturer">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Model name / Number</label>
+                    <input type="text" class="form-control" placeholder="Model name / Number">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label>Condition</label>
+                    <select class="form-control">
+                      <option selected>-</option>
+                      <option>New</option>
+                      <option>Like new</option>
+                      <option>Good</option>
+                      <option>Excellent</option>
+                      <option>Fair</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Size / Dimensions</label>
+                    <input type="text" class="form-control" placeholder="length  x  width  x  height">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Language of posting</label>
+                    <select class="form-control">
+                      <option selected>English</option>
+                      <option>Afrikaans</option>
+                      <option>Dansk</option>
+                      <option>Italiano</option>
+                      <option>Nederkands</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="check-boxes pt-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox"  name="posting_detail" value="option1">
+                    <label class="form-check-label">
+                      Cryptocurrency OK
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="posting_detail" value="option2">
+                    <label class="form-check-label">
+                      Delivery available
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="posting_detail" value="option3" checked>
+                    <label class="form-check-label">
+                      Include "more ads by this user" link
+                    </label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <h6>Contact Info</h6>
+                <div class="row">
+                  <div class="col-12 col-md-4 col-lg-4">
+                    <div class="check-boxes">
+                      <p>Email privacy options <a>[?]</a></p>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio"  name="contact_info" value="option1" checked>
+                        <label class="form-check-label">
+                          CL mail relay (recommended)
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contact_info" value="option2">
+                        <label class="form-check-label">
+                          No replies to this email
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-8 col-lg-8">
+                    <p class="sub-heading">Phone Details</p>
+                    <div class="checkboxes">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox"  name="phone" value="option1">
+                        <label class="form-check-label">
+                          Show my phone number
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="phone" value="option2">
+                        <label class="form-check-label">
+                          Phone calls OK
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="phone" value="option3">
+                        <label class="form-check-label">
+                          Text/ sms OK
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-row pt-3">
+                      <div class="form-group col-md-4">
+                        <label>Phone number</label>
+                        <input type="text" class="form-control" placeholder="Phone number">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label>Extension</label>
+                        <input type="text" class="form-control" placeholder="Extension">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label>Contact name</label>
+                        <input type="text" class="form-control" placeholder="Contact name">
+                      </div>
+                    </div>
+                    <div class="ignore">
+                      <p>Ignore texts requesting your login or credit card. <a>avoid scams</a></p>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="check-box">
+            <div class="form-check pb-4">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label">
+                ok for others to contact you about other services, products or commercial interests
+              </label>
+            </div>
+          </div>
+          <div class="next-btn">
+            <a class="rounded-btn">Next</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+@import '/src/styles.scss';
+
+.best-of-company {
+  padding: 35px 0 10px 0;
+  .head {
+    h6 {
+      color: black;
+      font-size: 18px;
+      font-weight: 500;
+      padding-bottom: 12px;
+    }
+    ul {
+      li {
+        color: black;
+        font-size: 15px;
+      }
+    }
+  }
+  .search-bar {
+    padding-top: 25px;
+  }
+  .table-section {
+    padding-top: 35px;
+    table {
+      &.table {
+        td {
+          color: #007bff;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
