@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { SharedModule } from '../../shared/shared.module';
+
 import { PostingRoutingModule } from './posting-routing.module';
 import { PostingComponent } from './posting.component';
 import { CreateAPostingComponent } from './create-a-posting/create-a-posting.component';
@@ -14,7 +16,8 @@ import { PostingDetailComponent } from './posting-detail/posting-detail.componen
   declarations: [PostingComponent, CreateAPostingComponent, AddPostingTypeComponent, AddCategoryComponent, ViewPostingsComponent, PostingDetailComponent],
   imports: [
     CommonModule,
-    PostingRoutingModule
+    PostingRoutingModule,
+    SharedModule
   ]
 })
 export class PostingModule { }

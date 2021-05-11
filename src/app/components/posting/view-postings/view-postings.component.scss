@@ -1,8 +1,129 @@
 @import '/src/styles.scss';
 
+.view-posting .top-bar {
+  background-color: #eeeeee;
+  padding: 15px 0 0 0;
+}
+
+.view-posting .view-posting-content{
+  padding: 30px 0;
+}
+
+.view-posting .category a{
+  color: black;
+  font-weight: 500;
+}
+
+.view-posting .show-category i{
+  padding-right: 5px;
+  font-size: 15px;
+}
+
 .view-posting {
-  .top-bar {
-    background-color: #eeeeee;
-    padding: 15px 0 0 0;
+  .show-category {
+    .btns {
+      display: flex;
+      a {
+        &.rounded-btn {
+          font-size: 12px;
+          color: white;
+        }
+      }
+    }
   }
 }
+
+.view-posting .posting-inner{
+  padding-top: 30px;
+}
+
+.view-posting .posting-inner a{
+  float: right;
+}
+
+.view-posting .adds .card{
+  cursor: pointer;
+  width: 100%;
+  height: 280px;
+}
+
+.view-posting .adds .card img{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.view-posting .adds h5{
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.view-posting .adds i{
+  font-size: 10px;
+  padding-right: 5px;
+  color: gray;
+}
+
+.view-posting .adds span{
+  font-size: 12px;
+  padding-right: 5px;
+}
+
+.view-posting .posting-inner .mini-btn{
+  float: unset;
+  padding: 2px 15px;
+  font-size: 11px;
+}
+
+.view-posting .posting-inner .full-card{
+  cursor: pointer;
+  padding-top: 30px;
+}
+
+.view-posting .full-card img{
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.view-posting .full-card h5{
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.view-posting .full-card i{
+  font-size: 10px;
+  padding-right: 5px;
+  color: gray;
+}
+
+.view-posting .full-card span{
+  font-size: 12px;
+  padding-right: 5px;
+}
+
+@media screen and (max-width: 19200px)
+{
+  .form-row{
+    float: right;
+  }
+}
+
+
+@media screen and (max-width: 768px)
+{
+  .view-posting .adds .card{
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 600px)
+{
+
+}
+
+
+
+
