@@ -2,7 +2,7 @@
   <div class="top-bar">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-6 col-lg-6">
+        <div class="col-12 col-md-8 col-lg-6">
           <div class="form-row">
             <div class="form-group col-md-4">
               <select class="form-control">
@@ -33,10 +33,9 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-6">
+        <div class="col-12 col-md-4 col-lg-6">
           <div class="form-row">
-            <div class="form-group
-            col-md-4">
+            <div class="form-group">
               <select class="form-control">
                 <option selected>Account</option>
                 <option>Post</option>
@@ -50,15 +49,178 @@
 
   <div class="view-posting-content">
     <div class="container">
+
       <div class="row">
-        <div class="col-12 col-md-4 col-lg-8">
+        <div class="col-12 col-md-4 col-lg-3">
           <div class="category">
             <a href="#">Community</a>
 
+            <div class="show-category pt-3">
+              <a href="#"><i class="fas fa-plus"></i> Show 14 Categories</a>
+              <div class="form-check pt-2">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Activity partners
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Artists
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Car pools
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Childcare
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  General community
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Groups
+                </label>
+              </div>
+              <div class="form-check pt-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Search titles only
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Has image
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Posted today
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Bundle duplicates
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                <label class="form-check-label" for="flexCheckChecked">
+                  Include nearby areas
+                </label>
+              </div>
+              <div class="pt-4">
+                <a href="#"><i class="fas fa-play"></i> Carshare Type</a>
+                <div class="form-check pt-2">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Journey offered
+                  </label>
+                </div>
+                <div class="form-check pt-2">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Journey offered
+                  </label>
+                </div>
+                <div class="btns pt-4">
+                  <a class="rounded-btn mr-2">Reset</a>
+                  <a class="rounded-btn">Update</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-12 col-md-4 col-lg-8">
 
+        <div class="col-12 col-md-8 col-lg-9">
+          <app-search-bar></app-search-bar>
+
+          <div class="posting-inner">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6 col-lg-4">
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option selected>List</option>
+                      <option>Thumb</option>
+                      <option>Gallery</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-8">
+                  <a class="chip-icon-btn">Newest</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="adds">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of data">
+                    <div class="adds-inner pt-3">
+                      <div class="card" routerLink="/posting/posting-detail">
+                        <img class="card-img-top" src={{item.image}}>
+                        <div class="card-body">
+                          <h5 class="card-title">{{item.name}}</h5>
+                          <p>
+                            <i class="far fa-star"></i>
+                            <span>{{item.date}}</span>
+                            <span>{{item.location}}</span>
+                          </p>
+                          <a class="chip-icon-btn mini-btn">Delete</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="full-card">
+              <div class="col-12" *ngFor="let item of card">
+                <div class="row">
+                  <div class="col-12 col-md-12 col-lg-12">
+                    <div class="adds-inner pt-3">
+                      <div class="card" routerLink="/posting/posting-detail">
+                       <div class="row">
+                        <div class="col-4 col-md-5 col-lg-3">
+                          <img class="card-img-top" src={{item.image}}>
+                        </div>
+                        <div class="col-8 col-md-7 col-lg-9">
+                          <div class="card-body">
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <p>
+                              <i class="far fa-star"></i>
+                              <span>{{item.date}}</span>
+                              <span>{{item.location}}</span>
+                            </p>
+                            <a class="chip-icon-btn mini-btn">Delete</a>
+                          </div>
+                        </div>
+                       </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

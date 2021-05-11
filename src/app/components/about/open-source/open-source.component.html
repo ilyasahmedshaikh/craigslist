@@ -1,1 +1,86 @@
-<p>open-source works!</p>
+<div class="source">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12">
+        <div class="source-inner">
+          <p class="pt-2">craigslist is a big believer in <a href="https://en.wikipedia.org/wiki/Open-source_software">open source software,</a> and <a href="https://www.craigslist.org/about/thanks">relies</a> on Linux, MySQL, Perl, Apache, Sphinx, Redis, Haraka, and many others.</p>
+          <p class="pt-2">craigslist (CL) has released the following open source projects:</p>
+          <p class="pt-2"><a href="https://github.com/craigslist/python-clblob">CL blob service</a> - a simple HTTP-based, multi-master storage service designed for scale-out and multi-datacenter deployments:</p>
+
+          <ul class="pt-2">
+            <li>multi-master architecture with no single point of failure</li>
+            <li>scales well for both read and write intensive workloads  </li>
+            <li>tracks TTLs for automatic expiration and purging of blobs   </li>
+            <li>designed for both local and multiple data center replication</li>
+            <li>pluggable index and storage interface (uses SQLite for index and filesystem for storage by default)</li>
+          </ul>
+
+          <p class="pt-2"><a href="https://github.com/craigslist/python-climage">CL image service</a> - large scale image resizing and processing HTTP service:</p>
+          <ul>
+            <li>flexible API to choose any quality, size, and center-cropping</li>
+            <li>automatically handles orientation operations from EXIF data  </li>
+            <li>stores resized images in the blob service (could use other stores)</li>
+          </ul>
+
+          <p class="pt-2"><a href="https://github.com/craigslist/mcp">memcache cluster proxy (MCP)</a> - a high-performance modular clustering HTTP reverse proxy:</p>
+          <ul>
+            <li>high-performance event-driven daemon</li>
+            <li>flexible configuration, easily extensible framework</li>
+            <li>uses standard memcached memory store for caching   </li>
+            <li>supports PCRE and rule-based traffic routing by URL, headers, and more</li>
+            <li>tracks health of origin servers, routes around failures</li>
+            <li>provides configurable URL redirects, rewrites, and real-time header transformations</li>
+          </ul>
+
+          <p class="pt-2">In addition, craigslist contributes code to the following open source projects:</p>
+
+          <div class="pt-3">
+            <a href="http://haraka.github.io/">Haraka:</a>
+            <ul>
+              <li>added the smtp_client code that helps support pooled connections for proxy queues</li>
+              <li>rewrote all of the smtp_proxy and smtp_forward code</li>
+              <li>major contributions to the test suite</li>
+              <li>plugin that does strict DNS checking, DNS access control lists</li>
+              <li>contributions to bannering support</li>
+              <li>logging infrastructure changes for more robust logging</li>
+              <li>plugins for aliases, access lists, etc.</li>
+            </ul>
+          </div>
+
+          <div class="pt-3">
+            <a href="https://github.com/redis/redis">Redis:</a>
+            <ul>
+              <li>perl-AnyEvent-Redis-Federated: an event-based redis client that implements client-side sharding in Perl</li>
+              <li>redis_util: s collection of utilities for node-redis</li>
+              <li>provided support for included config files</li>
+            </ul>
+          </div>
+
+          <div class="pt-3">
+            <a href="https://en.wikipedia.org/wiki/Sphinx_(search_engine)">Sphinx:</a>
+            <ul>
+              <li>provided the original persistent connections implementation</li>
+              <li>craigslist sponsors useful sphinx feature developments, such as the TRUNCATE INDEX command for real-time sphinx</li>
+            </ul>
+          </div>
+
+          <p class="pt-2">The <a href="https://www.craigslist.org/about/charitable">craigslist Charitable Fund</a> supports open source nonprofit organizations including:</p>
+          <ul>
+            <li><a href="https://www.apache.org/">Apache Software Foundation</a></li>
+            <li><a href="https://www.fsf.org/">Free Software Foundation</a></li>
+            <li><a href="https://www.gnome.org/">Gnome Foundation</a></li>
+            <li><a href="https://www.mozilla.org/en-US/">Mozilla Foundation</a></li>
+            <li><a href="http://www.opensource.org/">Open Source Initiative</a></li>
+            <li><a href="http://openstreetmap.us/">OpenStreetMap.us</a></li>
+            <li><a href="https://www.perlfoundation.org/">Perl Foundation</a></li>
+            <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+            <li><a href="https://www.python.org/">Python Software Foundation</a></li>
+            <li><a href="https://www.spi-inc.org/">Software in the Public Interest</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

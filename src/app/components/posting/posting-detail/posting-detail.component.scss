@@ -1,0 +1,38 @@
+@import '/src/styles.scss';
+
+.posting-detail{
+  padding: 30px 0;
+}
+
+.posting-detail .print .chip-icon-btn{
+  float: right;
+  font-size: 13px;
+  padding: 4px 17px;
+}
+
+.posting-detail .posting-inner h4{
+  font-weight: 600;
+}
+
+.posting-detail .posting-inner small{
+  font-size: 12px;
+  color: #888888;
+}
+
+.posting-detail .posting-inner .icon a{
+  color: #a8a8a8;
+  font-size: 14px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.posting-detail .posting-inner .icon i:hover{
+  color: #3ed1b1;
+  transition: 0.5s;
+  opacity: 0.5s;
+}
+
+.posting-detail .posting-inner img{
+  width: 45%;
+  height: auto;
+}
