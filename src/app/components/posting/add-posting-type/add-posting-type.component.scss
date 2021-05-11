@@ -6,6 +6,11 @@
     p {
       color: black;
       font-size: 15px;
+      a {
+        color: #007bff;
+        cursor: pointer;
+        font-weight: 500;
+      }
     }
     .choose-posting-type {
       padding-top: 3%;
