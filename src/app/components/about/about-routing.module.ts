@@ -41,7 +41,7 @@ const routes: Routes = [
         component: PrivacyPolicyComponent
       },
       {
-        path: 'best-of',
+        path: 'best-of-company',
         component: BestOfCompanyComponent
       },
       {
