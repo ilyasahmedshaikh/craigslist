@@ -19,12 +19,6 @@
   font-size: 15px;
 }
 
-// .view-posting .show-category .btns a.rounded-btn{
-//   display: flex;
-//   font-size: 12px;
-//   color: white;
-// }
-
 .view-posting {
   .show-category {
     .btns {
@@ -46,5 +40,88 @@
 .view-posting .posting-inner a{
   float: right;
 }
+
+.view-posting .adds .card{
+  width: 100%;
+  height: 280px;
+}
+
+.view-posting .adds .card img{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.view-posting .adds h5{
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.view-posting .adds i{
+  font-size: 10px;
+  padding-right: 5px;
+  color: gray;
+}
+
+.view-posting .adds span{
+  font-size: 12px;
+  padding-right: 5px;
+}
+
+.view-posting .posting-inner .mini-btn{
+  float: unset;
+  padding: 2px 15px;
+  font-size: 11px;
+}
+
+.view-posting .posting-inner .full-card{
+  padding-top: 30px;
+}
+
+.view-posting .full-card img{
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.view-posting .full-card h5{
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.view-posting .full-card i{
+  font-size: 10px;
+  padding-right: 5px;
+  color: gray;
+}
+
+.view-posting .full-card span{
+  font-size: 12px;
+  padding-right: 5px;
+}
+
+@media screen and (max-width: 19200px)
+{
+  .form-row{
+    float: right;
+  }
+}
+
+
+@media screen and (max-width: 768px)
+{
+  .view-posting .adds .card{
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 600px)
+{
+
+}
+
+
 
 
