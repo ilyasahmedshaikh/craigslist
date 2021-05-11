@@ -12,24 +12,24 @@
 <div class="sidebar side" [ngClass]="{'show': sidebar}">
   <ul>
       <!-- <li><a (click)="toggleMenu()" routerLink="/auth/login">Login</a></li> -->
-      <li><a class="logo">Craigslist</a></li>
+      <li><a (click)="toggleMenu()" class="logo">Craigslist</a></li>
       <!-- <li><a class="locate">in</a></li> -->
-      <li><i class="fas fa-user pt-3"></i><a class="create-btn" routerLink="/auth">my account</a></li>
-      <li><i class="fas fa-plus"></i> <a routerLink="/posting/add-category" class="create-btn">create a posting</a></li>
-      <li class="pt-3"><a>event calendar</a></li>
-      <li><a routerLink="/about/help">help, faq, abuse, legal</a></li>
-      <li><a routerLink="/about/scam">avoid scams & fraud</a></li>
-      <li><a routerLink="/about/safety">personal safety tips</a></li>
-      <li><a routerLink="/about/terms-of-use">terms of use</a></li>
-      <li><a routerLink="/about/privacy-policy">privacy policy</a></li>
-      <!-- <li><a class="new">new</a></li> -->
-      <!-- <li><a>system status</a></li> -->
-      <li><a>about craigslist</a></li>
-      <li><a>craigslist open source</a></li>
-      <li><a>craigslist blog</a></li>
-      <li><a>best-of-craigslist</a></li>
-      <li><a>"craigslist joe"</a></li>
-      <li><a>craig newmark philanthropies</a></li>
+      <li><i class="fas fa-user pt-3"></i><a (click)="toggleMenu()" class="create-btn" routerLink="/auth">my account</a></li>
+      <li><i class="fas fa-plus"></i> <a (click)="toggleMenu()" routerLink="/posting/add-category" class="create-btn">create a posting</a></li>
+      <li class="pt-3"><a (click)="toggleMenu()" >event calendar</a></li>
+      <li><a (click)="toggleMenu()" routerLink="/about/help">help, faq, abuse, legal</a></li>
+      <li><a (click)="toggleMenu()" routerLink="/about/scam">avoid scams & fraud</a></li>
+      <li><a (click)="toggleMenu()" routerLink="/about/safety">personal safety tips</a></li>
+      <li><a (click)="toggleMenu()" routerLink="/about/terms-of-use">terms of use</a></li>
+      <li><a (click)="toggleMenu()" routerLink="/about/privacy-policy">privacy policy</a></li>
+      <!-- <li><a (click)="toggleMenu()" class="new">new</a></li> -->
+      <!-- <li><a (click)="toggleMenu()" >system status</a></li> -->
+      <li><a (click)="toggleMenu()" >about craigslist</a></li>
+      <li><a (click)="toggleMenu()" >craigslist open source</a></li>
+      <li><a (click)="toggleMenu()" >craigslist blog</a></li>
+      <li><a (click)="toggleMenu()" >best-of-craigslist</a></li>
+      <li><a (click)="toggleMenu()" >"craigslist joe"</a></li>
+      <li><a (click)="toggleMenu()" >craig newmark philanthropies</a></li>
 
       <div class="bottom-thing">
           <a href="tel:+923337148980"><i class="fas fa-question-circle"></i> Need Help ?</a>

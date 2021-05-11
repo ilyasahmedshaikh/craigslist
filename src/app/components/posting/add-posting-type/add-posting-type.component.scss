@@ -12,11 +12,35 @@
         font-weight: 500;
       }
     }
-    .choose-posting-type {
+    .choose-add-posting {
       padding-top: 3%;
       .next-btn {
         padding-top: 28px;
         float: left;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .add-posting-type {
+    .add-posting {
+      .choose-add-posting  {
+        .next-btn {
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .add-posting-type {
+    .add-posting {
+      .choose-add-posting  {
+        .next-btn {
+          float: unset;
+        }
       }
     }
   }

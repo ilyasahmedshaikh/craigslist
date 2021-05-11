@@ -1,8 +1,8 @@
 @import '../../../../styles.scss';
 
 .create-a-posting {
+  padding: 30px 0;
   .posting-form {
-    padding: 30px 0;
     .card {
       form {
         h6 {
@@ -43,6 +43,32 @@
             }
           }
         }
+      }
+    }
+    .check-box {
+      padding-top: 20px;
+    }
+    .next-btn {
+      float: left;
+    }
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .create-a-posting {
+    .posting-form {
+      .next-btn {
+        float: left;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .create-a-posting {
+    .posting-form {
+      .next-btn {
+        float: unset;
       }
     }
   }
