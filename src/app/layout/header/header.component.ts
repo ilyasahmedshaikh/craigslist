@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleMenu(event) {
+  toggleMenu() {
     // animating icon
     this.toggleButton = !this.toggleButton;
 
