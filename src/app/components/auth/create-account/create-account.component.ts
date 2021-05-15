@@ -22,7 +22,7 @@ export class CreateAccountComponent implements OnInit {
     this.programForm = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
-      userName: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
     });
