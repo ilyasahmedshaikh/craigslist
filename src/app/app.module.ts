@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+
 import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +22,8 @@ import { FooterComponent } from './layout/footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
     {

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "craigslist-a9e4c": {
+      "hosting": {
+        "craigslist": [
+          "craigslist-a9e4c"
+        ]
+      }
+    }
+  }
+}
