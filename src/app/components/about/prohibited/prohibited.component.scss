@@ -1,0 +1,43 @@
+@import '/src/styles.scss';
+
+.prohibited{
+  padding: 30px 0;
+}
+
+.prohibited .pages{
+  text-align: center;
+}
+
+.prohibited .pages a{
+  font-size: 14px;
+  padding: 5px 20px;
+  margin-right: 8px;
+}
+
+.prohibited .prohibited-inner h3{
+  font-weight: bold;
+}
+
+.prohibited .prohibited-inner a{
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.prohibited .prohibited-inner span{
+  font-weight: 100;
+  font-size: 15px;
+  color: #404040;
+}
+
+.prohibited .prohibited-inner li{
+  padding-top: 5px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .prohibited .pages{
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+}

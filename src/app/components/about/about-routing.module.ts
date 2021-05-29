@@ -10,6 +10,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { BestOfCompanyComponent } from './best-of-company/best-of-company.component';
 import { CompanyAboutComponent } from './company-about/company-about.component';
 import { OpenSourceComponent } from './open-source/open-source.component';
+import { ProhibitedComponent } from './prohibited/prohibited.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
       {
         path: 'open-source',
         component: OpenSourceComponent
+      },
+      {
+        path: 'prohibited',
+        component: ProhibitedComponent
       }
     ]
   }

@@ -13,10 +13,11 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { CompanyAboutComponent } from './company-about/company-about.component';
 import { OpenSourceComponent } from './open-source/open-source.component';
 import { BestOfCompanyComponent } from './best-of-company/best-of-company.component';
+import { ProhibitedComponent } from './prohibited/prohibited.component';
 
 
 @NgModule({
-  declarations: [AboutComponent, HelpComponent, ScamComponent, SafetyComponent, TermsOfUseComponent, PrivacyPolicyComponent, CompanyAboutComponent, OpenSourceComponent, BestOfCompanyComponent],
+  declarations: [AboutComponent, HelpComponent, ScamComponent, SafetyComponent, TermsOfUseComponent, PrivacyPolicyComponent, CompanyAboutComponent, OpenSourceComponent, BestOfCompanyComponent, ProhibitedComponent],
   imports: [
     CommonModule,
     AboutRoutingModule,
