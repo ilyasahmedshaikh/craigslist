@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ConfigService } from '../../../core/http/config/config.service'
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,11 +29,24 @@ export class ApiService {
       });
     });
 
-    return data;
+    return new Observable((observer) => {
+      observer.next(data);
+    });
   }
 
   getSingle(collection, id) {
-    return this.firestore.collection(collection).doc(id).get();
+    let data = {};
+
+    return new Observable((observer) => {
+      this.firestore.collection(collection).doc(id).get().subscribe(res => {
+        data = {
+          id: res.id,
+          ...res.data() as {}
+        }
+        
+        observer.next(data);
+      })
+    });
   }
 
   put(collection, id, data) {
@@ -41,6 +55,16 @@ export class ApiService {
 
   delete(collection, id) {
     return this.firestore.collection(collection).doc(id).delete();
+  }
+  
+  getWithQuery(collection, key, operator, matchingValue) {
+    let data = this.firestore.collection(collection, ref => 
+      ref.where(key, operator, matchingValue)
+    )
+
+    return new Observable((observer) => {
+      observer.next(data);
+    });
   }
 
 }

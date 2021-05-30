@@ -5,12 +5,12 @@
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-4 col-4 mt-4" *ngFor="let item of data">
+      <div class="col-12 col-md-4 col-4 mt-4" *ngFor="let item of postings">
         <div class="card">
-          <div class="card-header text-center" routerLink="/posting/view-postings"><a>{{item.title}}</a></div>
+          <div class="card-header text-center" routerLink="/posting/view-postings"><a>{{item.name}}</a></div>
           <div class="card-body row">
-            <div class="col-12 col-12 col-lg-12" *ngFor="let category of item.categories">
-              <a href="#">{{category.name}}</a>
+            <div class="col-12 col-12 col-lg-12" *ngFor="let category of categories">
+              <a href="#" *ngIf="category.postingId == item.id">{{category.name}}</a>
             </div>
           </div>
         </div>

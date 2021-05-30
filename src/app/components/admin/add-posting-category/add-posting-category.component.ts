@@ -42,15 +42,30 @@ export class AddPostingCategoryComponent implements OnInit {
   }
 
   getPostings() {
-    this.postings = this.api.getAll(this.config.collections.postings);
+    this.api.getAll(this.config.collections.postings).subscribe(
+      p => {
+        this.postings = p;
+      },
+      error => alert(error)
+    );
   }
 
   getCategories() {
-    this.categories = this.api.getAll(this.config.collections.categories);
+    this.categories = this.api.getAll(this.config.collections.categories).subscribe(
+      c => {
+        this.categories = c;
+      },
+      error => alert(error)
+    );
   }
 
   createPosting() {
-    let request = this.api.post(this.config.collections.postings, this.postingForm.value);
+    let data = {
+      ...this.postingForm.value,
+      categories: []
+    }
+
+    let request = this.api.post(this.config.collections.postings, data);
 
     request.then(() => {
       this.postingForm.reset();
