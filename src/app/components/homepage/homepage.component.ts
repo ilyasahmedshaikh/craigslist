@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfigService } from '../../core/http/config/config.service'
 import { ApiService } from '../../core/http/api/api.service';
+import { PostingCategoryService } from '../../core/http/posting-category/posting-category.service';
 
 @Component({
   selector: 'app-homepage',
@@ -17,6 +18,7 @@ export class HomepageComponent implements OnInit {
     private router: Router,
     private config: ConfigService,
     private api: ApiService,
+    private postingCategory: PostingCategoryService,
   ) { }
 
   ngOnInit(): void {
