@@ -58,12 +58,19 @@ export class ApiService {
   }
   
   getWithQuery(collection, key, operator, matchingValue) {
-    let data = this.firestore.collection(collection, ref => 
-      ref.where(key, operator, matchingValue)
-    )
+    let data = [];
 
     return new Observable((observer) => {
-      observer.next(data);
+      this.firestore.collection(collection, ref => ref.where(key, operator, matchingValue)).get().subscribe(res => {    
+        res.forEach(i => {
+          data.push({
+            id: i.id,
+            ...i.data() as {}
+          })
+        });
+
+        observer.next(data);
+      })
     });
   }
 

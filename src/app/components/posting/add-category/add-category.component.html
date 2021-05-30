@@ -7,15 +7,15 @@
           <p><strong>what type of posting is this: </strong>(see <a routerLink="/about/prohibited">Prohibited</a> list before posting.)</p>
           <div class="choose-category">
             <form [formGroup]="addCategoryForm">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="add_category" value="option1" formControlName="categoryType">
+              <div class="form-check" *ngFor="let item of categories">
+                <input class="form-check-input" type="radio" name="categoryType" [value]="item.id" formControlName="categoryType">
                 <label class="form-check-label">
-                  Job offered
+                  {{item.name}}
                 </label>
               </div>
             </form>
             <div class="next-btn">
-              <a class="rounded-btn" routerLink="/posting/add-posting">Next</a>
+              <a class="rounded-btn" (click)="next()">Next</a>
             </div>
           </div>
         </div>
