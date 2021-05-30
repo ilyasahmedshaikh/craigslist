@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-view-postings',
@@ -7,11 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPostingsComponent implements OnInit {
 
+  viewPostingForm: any = FormGroup;
   data: any = [];
   card: any = [];
-  constructor() { }
+
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.formInit();
+
     this.data = [
       {
         id: 1,
@@ -56,8 +63,6 @@ export class ViewPostingsComponent implements OnInit {
         location: 'Berlin'
       }
     ],
-
-
     this.card = [
       {
         id: 1,
@@ -102,6 +107,19 @@ export class ViewPostingsComponent implements OnInit {
         location: 'Berlin'
       }
     ]
+  }
+
+  formInit() {
+    this.viewPostingForm = this.fb.group({
+      categoryName: ['', Validators.required],
+      postingType: ['', Validators.required],
+      postingTypeAll: ['', Validators.required],
+      accountPost: ['', Validators.required],
+      categories: [false, Validators.required],
+      searchTitles: [false, Validators.required],
+      type: [false, Validators.required],
+      list: ['', Validators.required]
+    });
   }
 
 }
