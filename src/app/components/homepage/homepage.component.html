@@ -1,7 +1,7 @@
 <div class="homepage">
   <div class="container">
     <div class="search-bar">
-      <app-search-bar></app-search-bar>
+      <app-search-bar (getQuery)="getSearchQuery($event)"></app-search-bar>
     </div>
 
     <div class="row">

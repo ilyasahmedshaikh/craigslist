@@ -14,6 +14,8 @@ export class HomepageComponent implements OnInit {
   postings: any = [];
   categories: any = [];
 
+  searchText: string = '';
+
   constructor(
     private router: Router,
     private config: ConfigService,
@@ -38,6 +40,11 @@ export class HomepageComponent implements OnInit {
       }
     },
     error => alert(error));
+  }
+
+  getSearchQuery(event) {
+    this.searchText = event;
+    console.log(this.searchText);
   }
 
 }
