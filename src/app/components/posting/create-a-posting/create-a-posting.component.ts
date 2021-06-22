@@ -92,13 +92,13 @@ export class CreateAPostingComponent implements OnInit {
 
     this.contactForm = this.fb.group({
       emailPrivacy: ['CL mail relay', Validators.required],
-      showMyNumber: [false, Validators.required],
-      phoneCalls: [false, Validators.required],
-      textSms: [false, Validators.required],
+      showMyNumber: [true, Validators.required],
+      phoneCalls: [true, Validators.required],
+      textSms: [true, Validators.required],
       phoneNumber: ['', Validators.required],
       extension: ['', Validators.required],
       contactName: ['', Validators.required],
-      contactYou: [false, Validators.required]
+      contactYou: [true, Validators.required]
     });
   }
 
