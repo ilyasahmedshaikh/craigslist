@@ -4,6 +4,7 @@
       <div class="col-12">
         <h1 class="heading">Create Posting</h1>
         <div class="posting-form">
+
           <form [formGroup]="createPostingForm">
             <div class="card">
               <div class="card-body">
@@ -31,6 +32,9 @@
                 </div>
               </div>
             </div>
+          </form>
+
+          <form [formGroup]="saleForm" *ngIf="postingNcategory.posting.name == 'For Sale' || postingNcategory.posting.name == 'Community'">
             <div class="card my-4">
               <div class="card-body">
                 <h6>Posting Details</h6>
@@ -49,11 +53,11 @@
                     <label>Condition</label>
                     <select class="form-control" formControlName="condition">
                       <option selected>-</option>
-                      <option>New</option>
-                      <option>Like new</option>
-                      <option>Good</option>
-                      <option>Excellent</option>
-                      <option>Fair</option>
+                      <option value="New">New</option>
+                      <option value="Like new">Like new</option>
+                      <option value="Good">Good</option>
+                      <option value="Excellent">Excellent</option>
+                      <option value="Fair">Fair</option>
                     </select>
                   </div>
                   <div class="form-group col-md-4">
@@ -63,11 +67,11 @@
                   <div class="form-group col-md-4">
                     <label>Language of posting</label>
                     <select class="form-control" formControlName="languagePosting">
-                      <option selected>English</option>
-                      <option>Afrikaans</option>
-                      <option>Dansk</option>
-                      <option>Italiano</option>
-                      <option>Nederkands</option>
+                      <option selected value="English">English</option>
+                      <option value="Afrikaans">Afrikaans</option>
+                      <option value="Dansk">Dansk</option>
+                      <option value="Italiano">Italiano</option>
+                      <option value="Nederkands">Nederkands</option>
                     </select>
                   </div>
                 </div>
@@ -93,7 +97,173 @@
                 </div>
               </div>
             </div>
-            <div class="card">
+          </form>
+
+          <form [formGroup]="housingForm" *ngIf="postingNcategory.posting.name == 'Housing'">
+            <div class="card my-4">
+              <div class="card-body">
+                <h6>Posting Details</h6>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label>Sqft.</label>
+                    <input type="number" class="form-control" placeholder="Square Feet" formControlName="sqft">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Housing Type</label>
+                      <select class="form-control" formControlName="housingType">
+                        <option selected>-</option>
+                        <option value="Appartment">Appartment</option>
+                        <option value="Duplex">Duplex</option>
+                        <option value="Flat">Flat</option>
+                        <option value="House">House</option>
+                        <option value="Land">Land</option>
+                      </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Laundry</label>
+                      <select class="form-control" formControlName="laundry">
+                        <option selected>-</option>
+                        <option value="w/d in unit">w/d in unit</option>
+                        <option value="w/d hookups">w/d hookups</option>
+                        <option value="Laundry on site">Laundry on site</option>
+                        <option value="Laundry in bldg">Laundry in bldg</option>
+                        <option value="No laundry on site">No laundry on site</option>
+                      </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Parking</label>
+                      <select class="form-control" formControlName="parking">
+                        <option selected>-</option>
+                        <option value="Carport">Carport</option>
+                        <option value="Atatched Garage">Atatched Garage</option>
+                        <option value="Street Parking">Street Parking</option>
+                        <option value="Valet Parking">Valet Parking</option>
+                        <option value="No Parking">No Parking</option>
+                      </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Bed Rooms</label>
+                    <input type="number" class="form-control" placeholder="Bed Rooms" formControlName="bedRooms">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Bath Rooms</label>
+                    <input type="number" class="form-control" placeholder="Bath Rooms" formControlName="bathRooms">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Available at</label>
+                    <input type="date" class="form-control" formControlName="availableAt">
+                  </div>
+                </div>
+                <div class="row check-boxes pt-3">
+                  <div class="form-check col-12 col-md-3">
+                    <input class="form-check-input" type="checkbox"  name="catsOk" value="Cats Ok" formControlName="catsOk">
+                    <label class="form-check-label">
+                      Cats Ok
+                    </label>
+                  </div>
+                  <div class="form-check col-12 col-md-3">
+                    <input class="form-check-input" type="checkbox" name="dogsOk" value="Dogs Ok" formControlName="dogsOk">
+                    <label class="form-check-label">
+                      Dogs Ok
+                    </label>
+                  </div>
+                  <div class="form-check col-12 col-md-3">
+                    <input class="form-check-input" type="checkbox" name="furnished" value="Furnished" formControlName="furnished">
+                    <label class="form-check-label">
+                      Furnished
+                    </label>
+                  </div>
+                  <div class="form-check col-12 col-md-3">
+                    <input class="form-check-input" type="checkbox" name="noSmoking" value="No Smoking" formControlName="noSmoking">
+                    <label class="form-check-label">
+                      No Smoking
+                    </label>
+                  </div>
+                  <div class="form-check col-12 col-md-3">
+                    <input class="form-check-input" type="checkbox" name="wheelChairAccessible" value="Wheel Chair Accessible" formControlName="wheelChairAccessible">
+                    <label class="form-check-label">
+                      Wheel Chair Accessible
+                    </label>
+                  </div>
+                  <div class="form-check col-12 col-md-3">
+                    <input class="form-check-input" type="checkbox" name="airConditioning" value="Air Conditioning" formControlName="airConditioning">
+                    <label class="form-check-label">
+                      Air Conditioning
+                    </label>
+                  </div>
+                  <div class="form-check col-12 col-md-3">
+                    <input class="form-check-input" type="checkbox" name="evCharging" value="EV Charging" formControlName="evCharging">
+                    <label class="form-check-label">
+                      EV Charging
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <form [formGroup]="jobForm" *ngIf="postingNcategory.posting.name == 'Jobs'">
+            <div class="card my-4">
+              <div class="card-body">
+                <h6>Posting Details</h6>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label>Compensation</label>
+                    <input type="text" class="form-control" placeholder="Compensation" formControlName="compensation">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Company Name</label>
+                    <input type="text" class="form-control" placeholder="Company Name" formControlName="companyName">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Employment Type</label>
+                      <select class="form-control" formControlName="employmentType">
+                        <option selected>-</option>
+                        <option value="Full Time">Full Time</option>
+                        <option value="Part Time">Part Time</option>
+                        <option value="Contract">Contract</option>
+                        <option value="Employee's Choice">Employee's Choice</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="row check-boxes pt-3">
+                  <div class="form-check col-12 col-md-4">
+                    <input class="form-check-input" type="checkbox"  name="catsOk" value="direct contact by recruiters is ok" formControlName="directContact">
+                    <label class="form-check-label">
+                      Direct contact by recruiters is ok
+                    </label>
+                  </div>
+                  <div class="form-check col-12 col-md-4">
+                    <input class="form-check-input" type="checkbox" name="internship" value="Internship" formControlName="internship">
+                    <label class="form-check-label">
+                      Internship
+                    </label>
+                  </div>
+                  <div class="form-check col-12 col-md-4">
+                    <input class="form-check-input" type="checkbox" name="nonProfit" value="non-profit organization" formControlName="nonProfit">
+                    <label class="form-check-label">
+                      Non-profit organization
+                    </label>
+                  </div>
+                  <div class="form-check col-12 col-md-4">
+                    <input class="form-check-input" type="checkbox" name="relocationAssistance" value="relocation assistance available" formControlName="relocationAssistance">
+                    <label class="form-check-label">
+                      Relocation assistance available
+                    </label>
+                  </div>
+                  <div class="form-check col-12 col-md-4">
+                    <input class="form-check-input" type="checkbox" name="telecommutingOk" value="telecommuting ok" formControlName="telecommutingOk">
+                    <label class="form-check-label">
+                      Telecommuting ok
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <form [formGroup]="contactForm">
+            <div class="card my-4">
               <div class="card-body">
                 <h6>Contact Info</h6>
                   <div class="row">
@@ -101,13 +271,13 @@
                       <div class="check-boxes">
                         <p>Email privacy options <a routerLink="/about/help">[?]</a></p>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio"  name="emailPrivacy" value="option1" checked formControlName="emailPrivacy">
+                          <input class="form-check-input" type="radio"  name="emailPrivacy" value="CL mail relay" checked formControlName="emailPrivacy">
                           <label class="form-check-label">
                             CL mail relay (recommended)
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="emailPrivacy" value="option2" formControlName="emailPrivacy">
+                          <input class="form-check-input" type="radio" name="emailPrivacy" value="No replies to this email" formControlName="emailPrivacy">
                           <label class="form-check-label">
                             No replies to this email
                           </label>
@@ -166,8 +336,9 @@
               </div>
             </div>
           </form>
+
           <div class="next-btn">
-            <a class="rounded-btn">Next</a>
+            <a class="rounded-btn" (click)="createPost()">Create Posting</a>
           </div>
         </div>
       </div>

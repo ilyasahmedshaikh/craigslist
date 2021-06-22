@@ -9,7 +9,7 @@ export class ConfigService {
     users: "users",
     postings: "postings",
     categories: "categories",
-    posting_categories: "posting_categories",
+    posts: "posts",
   }
 
   constructor() { }

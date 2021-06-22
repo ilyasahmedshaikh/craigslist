@@ -13,6 +13,11 @@ import { PostingCategoryService } from '../../../core/http/posting-category/post
 export class CreateAPostingComponent implements OnInit {
 
   createPostingForm: any = FormGroup;
+  saleForm: any = FormGroup;
+  contactForm: any = FormGroup;
+  housingForm: any = FormGroup;
+  jobForm: any = FormGroup;
+
   postingNcategory: any = {};
 
   constructor(
@@ -28,8 +33,12 @@ export class CreateAPostingComponent implements OnInit {
   ngOnInit(): void {
     this.formInit();
 
-    console.log(this.postingNcategory.posting);
-    console.log(this.postingNcategory.category);
+    if (this.postingNcategory) {
+      console.log(this.postingNcategory.posting);
+      console.log(this.postingNcategory.category);
+    } else {
+      this.router.navigateByUrl('/posting/add-posting');
+    }
   }
 
   formInit() {
@@ -39,6 +48,10 @@ export class CreateAPostingComponent implements OnInit {
       cityNeighborhood: ['', Validators.required],
       postalCode: ['', Validators.required],
       description: ['', Validators.required],
+      createdAt: [new Date(), Validators.required],
+    });
+
+    this.saleForm = this.fb.group({
       makeManufacturer: ['', Validators.required],
       modelNameNumber: ['', Validators.required],
       condition: ['', Validators.required],
@@ -47,7 +60,38 @@ export class CreateAPostingComponent implements OnInit {
       cryptocurrency: [false, Validators.required],
       deliveryAvailable: [false, Validators.required],
       moreAdsLink: [true, Validators.required],
-      emailPrivacy: ['option1', Validators.required],
+    });
+
+    this.housingForm = this.fb.group({
+      sqft: ['', Validators.required],
+      housingType: ['', Validators.required],
+      laundry: ['', Validators.required],
+      parking: ['', Validators.required],
+      bedRooms: ['', Validators.required],
+      bathRooms: ['', Validators.required],
+      availableAt:  [new Date(), Validators.required],
+      catsOk: [false],
+      dogsOk: [false],
+      furnished: [false],
+      noSmoking: [false],
+      wheelChairAccessible: [false],
+      airConditioning: [false],
+      evCharging: [false],
+    });
+
+    this.jobForm = this.fb.group({
+      compensation:  ['', Validators.required],
+      companyName:  ['', Validators.required],
+      employmentType:  ['', Validators.required],
+      directContact: [false, Validators.required],
+      internship: [false, Validators.required],
+      nonProfit: [false, Validators.required],
+      relocationAssistance: [false, Validators.required],
+      telecommutingOk: [false, Validators.required],
+    })
+
+    this.contactForm = this.fb.group({
+      emailPrivacy: ['CL mail relay', Validators.required],
       showMyNumber: [false, Validators.required],
       phoneCalls: [false, Validators.required],
       textSms: [false, Validators.required],
@@ -55,6 +99,47 @@ export class CreateAPostingComponent implements OnInit {
       extension: ['', Validators.required],
       contactName: ['', Validators.required],
       contactYou: [false, Validators.required]
+    });
+  }
+
+  createPost() {
+    let data = {};
+
+    let basicInfo = {
+      postingId: this.postingNcategory.posting.id,
+      categoryId: this.postingNcategory.category.id,
+      ...this.createPostingForm.value,
+      ...this.contactForm.value
+    }
+
+    if (this.postingNcategory.posting.name == 'For Sale' || this.postingNcategory.posting.name == 'Community') {
+      data = {
+        ...this.saleForm.value,
+        ...basicInfo
+      }
+    }
+
+    if (this.postingNcategory.posting.name == 'Housing') {
+      data = {
+        ...this.housingForm.value,
+        ...basicInfo
+      }
+    }
+
+    if (this.postingNcategory.posting.name == 'Jobs') {
+      data = {
+        ...this.jobForm.value,
+        ...basicInfo
+      }
+    }
+
+    let request = this.api.post(this.config.collections.posts, data);
+
+    request.then(() => {
+      this.router.navigateByUrl("/homepage");
+    })
+    .catch((error) => {
+      alert(error);
     });
   }
 
