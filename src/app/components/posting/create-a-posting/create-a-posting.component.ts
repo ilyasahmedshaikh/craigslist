@@ -20,6 +20,9 @@ export class CreateAPostingComponent implements OnInit {
 
   postingNcategory: any = {};
 
+  imagePreview: string = "";
+  imageUploaded: boolean = false;
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -106,6 +109,7 @@ export class CreateAPostingComponent implements OnInit {
     let data = {};
 
     let basicInfo = {
+      image: this.imagePreview,
       postingId: this.postingNcategory.posting.id,
       categoryId: this.postingNcategory.category.id,
       ...this.createPostingForm.value,
@@ -141,6 +145,11 @@ export class CreateAPostingComponent implements OnInit {
     .catch((error) => {
       alert(error);
     });
+  }
+
+  onImagePreview(event) {
+    this.imagePreview = event.preview;
+    this.imageUploaded = event.imageUploaded;
   }
 
 }

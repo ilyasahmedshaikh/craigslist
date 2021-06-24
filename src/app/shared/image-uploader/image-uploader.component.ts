@@ -67,10 +67,11 @@ export class ImageUploaderComponent implements OnInit {
       const file = event.target['files'][0];
       const reader = new FileReader();
 
-      // check image size should be <= 100KB
+      // getting image size in Kbs
       let imageSizeInKbs = file.size/1024;
 
-      if(imageSizeInKbs <= 100){
+      // image should be less than 5 MB
+      if(imageSizeInKbs <= 5120){
         // render image preview in image viewer area
         reader.onload = e => this.preview = reader.result;
         reader.readAsDataURL(file);
@@ -78,7 +79,7 @@ export class ImageUploaderComponent implements OnInit {
         // store image in DB and get store URL
         this.uploadFile(event);
       } else {
-        alert('Image should be less than 100KB, reduce your image size using https://tinypng.com/');
+        alert('Image should be less than 5MB, reduce your image size using https://tinypng.com/');
       }
     }
   }

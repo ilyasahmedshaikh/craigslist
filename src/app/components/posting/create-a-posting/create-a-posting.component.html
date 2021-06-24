@@ -5,7 +5,9 @@
         <h1 class="heading">Create Posting</h1>
         <div class="posting-form">
 
-          <form [formGroup]="createPostingForm">
+          <app-image-uploader (previewImage)="onImagePreview($event)"></app-image-uploader>
+
+          <form [formGroup]="createPostingForm" class="pt-5">
             <div class="card">
               <div class="card-body">
                 <div class="form-row">
