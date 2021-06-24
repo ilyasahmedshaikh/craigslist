@@ -47,4 +47,12 @@ export class HomepageComponent implements OnInit {
     console.log(this.searchText);
   }
 
+  viewByPosting(item) {
+    this.router.navigate(['/posting/view-postings'], { state: { data: item, type: 'posting' } });
+  }
+
+  viewByCategory(item) {
+    this.router.navigate(['/posting/view-postings'], { state: { data: item, type: 'category' } });
+  }
+
 }

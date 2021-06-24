@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ConfigService } from '../../../core/http/config/config.service'
+import { ApiService } from '../../../core/http/api/api.service';
 
 @Component({
   selector: 'app-view-postings',
@@ -11,102 +14,27 @@ export class ViewPostingsComponent implements OnInit {
   viewPostingForm: any = FormGroup;
   data: any = [];
   card: any = [];
+  categories: any = [];
+
+  routedData: any = {};
+  routedType: string = "posting";
+
+  viewType: string = 'list';
 
   constructor(
-    private fb: FormBuilder
-  ) { }
+    private router: Router,
+    private fb: FormBuilder,
+    private config: ConfigService,
+    private api: ApiService,
+  ) {
+    this.routedData = this.router.getCurrentNavigation().extras.state.data;
+  }
 
   ngOnInit(): void {
     this.formInit();
 
-    this.data = [
-      {
-        id: 1,
-        image: 'assets/img/add4.jpg',
-        name: 'Drum Tracks',
-        date: 'March, 5, 2020 -',
-        location: 'Berlin'
-      },
-      {
-        id: 2,
-        image: 'assets/img/add2.jpg',
-        name: 'Seeking Piano',
-        date: 'April, 20, 2021 -',
-        location: 'Remote'
-      },
-      {
-        id: 3,
-        image: 'assets/img/add1.jpg',
-        name: 'Serious Dark',
-        date: 'May, 9, 2021 -',
-        location: 'Berlin'
-      },
-      {
-        id: 4,
-        image: 'assets/img/add5.jpg',
-        name: 'Music Room',
-        date: 'June, 22, 2020 -',
-        location: 'Hamburg'
-      },
-      {
-        id: 5,
-        image: 'assets/img/add3.jpg',
-        name: '3D Groovy',
-        date: 'April, 28, 2021 -',
-        location: 'Berlin'
-      },
-      {
-        id: 6,
-        image: 'assets/img/add6.jpg',
-        name: ' Seeking piano',
-        date: 'April, 20, 2021 -',
-        location: 'Berlin'
-      }
-    ],
-    this.card = [
-      {
-        id: 1,
-        image: 'assets/img/add1.jpg',
-        name: 'Serious Dark',
-        date: 'May, 9, 2021 -',
-        location: 'Berlin'
-      },
-      {
-        id: 2,
-        image: 'assets/img/add2.jpg',
-        name: 'Seeking Piano',
-        date: 'April, 20, 2021 -',
-        location: 'Remote'
-      },
-      {
-        id: 3,
-        image: 'assets/img/add3.jpg',
-        name: '3D Groovy',
-        date: 'April, 28, 2021 -',
-        location: 'Berlin'
-      },
-      {
-        id: 4,
-        image: 'assets/img/add4.jpg',
-        name: 'Drum Tracks',
-        date: 'March, 5, 2020 -',
-        location: 'Berlin'
-      },
-      {
-        id: 5,
-        image: 'assets/img/add5.jpg',
-        name: 'Music Room',
-        date: 'June, 22, 2020 -',
-        location: 'Hamburg'
-      },
-      {
-        id: 6,
-        image: 'assets/img/add6.jpg',
-        name: ' Seeking piano',
-        date: 'April, 20, 2021 -',
-        location: 'Berlin'
-      }
-    ]
+    if(this.routedData) this.getPostings();
+    else this.router.navigateByUrl('/homepage');
   }
 
   formInit() {
@@ -120,6 +48,32 @@ export class ViewPostingsComponent implements OnInit {
       type: [false, Validators.required],
       list: ['', Validators.required]
     });
+  }
+
+  onChangeViewType(event) {
+    this.viewType = event.target.value;
+  }
+
+  getPostings() {
+    if (this.routedType == 'posting') {
+      // get categories by postingId
+      this.api.getWithQuery(this.config.collections.categories, 'postingId', "==", this.routedData.id).subscribe(res => {
+        this.categories = res;
+        console.log(res);
+      })
+
+      // get posts related to selected posting topic
+      this.api.getWithQuery(this.config.collections.posts, 'postingId', "==", this.routedData.id).subscribe(res => {
+        this.data = res;
+        console.log(this.data);
+      })
+    }
+
+    if (this.routedType == 'category') {
+      this.api.getWithQuery(this.config.collections.posts, 'categoryId', "==", this.routedData.id).subscribe(res => {
+        console.log(res);
+      })
+    }
   }
 
 }

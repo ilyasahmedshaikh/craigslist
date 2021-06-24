@@ -57,73 +57,13 @@
 
               <div class="show-category pt-3">
                 <a href="#"><i class="fas fa-plus"></i> Show 14 Categories</a>
-                <div class="form-check pt-2">
-                  <input class="form-check-input" type="checkbox" value="" formControlName="categories">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Activity partners
-                  </label>
-                </div>
-                <!-- <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Artists
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Car pools
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Childcare
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    General community
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Groups
-                  </label>
-                </div> -->
 
-                <div class="form-check pt-3">
-                  <input class="form-check-input" type="checkbox" value="" formControlName="searchTitles">
+                <div class="form-check pt-2" *ngFor="let item of categories">
+                  <input class="form-check-input" type="checkbox" [value]="item.id" formControlName="categories">
                   <label class="form-check-label" for="flexCheckChecked">
-                    Search titles only
+                    {{item.name}}
                   </label>
                 </div>
-                <!-- <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Has image
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Posted today
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Bundle duplicates
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    Include nearby areas
-                  </label>
-                </div> -->
 
                 <div class="pt-4">
                   <a href="#"><i class="fas fa-play"></i> Carshare Type</a>
@@ -133,12 +73,12 @@
                       Journey offered
                     </label>
                   </div>
-                  <!-- <div class="form-check pt-2">
+                  <div class="form-check pt-2">
                     <input class="form-check-input" type="checkbox" value="">
                     <label class="form-check-label" for="flexCheckChecked">
                       Journey offered
                     </label>
-                  </div> -->
+                  </div>
                   <div class="btns pt-4">
                     <a class="rounded-btn mr-2">Reset</a>
                     <a class="rounded-btn">Update</a>
@@ -156,10 +96,9 @@
                 <div class="row">
                   <div class="col-6 col-lg-4">
                     <div class="form-group">
-                      <select class="form-control" formControlName="list">
-                        <option selected>List</option>
-                        <option>Thumb</option>
-                        <option>Gallery</option>
+                      <select class="form-control" (change)="onChangeViewType($event)">
+                        <option value="list">List</option>
+                        <option value="thumb" selected>Thumb</option>
                       </select>
                     </div>
                   </div>
@@ -170,7 +109,7 @@
                 </div>
               </div>
 
-              <div class="adds">
+              <div class="adds" *ngIf="viewType == 'thumb'">
                 <div class="col-12">
                   <div class="row">
                     <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of data">
@@ -178,11 +117,12 @@
                         <div class="card" routerLink="/posting/posting-detail">
                           <img class="card-img-top" src={{item.image}}>
                           <div class="card-body">
-                            <h5 class="card-title">{{item.name}}</h5>
+                            <h5 class="card-title">{{item.postingTitle}}</h5>
+                            <p><small>${{item.price}}</small></p>
                             <p>
                               <i class="far fa-star"></i>
-                              <span>{{item.date}}</span>
-                              <span>{{item.location}}</span>
+                              <span>{{item.createdAt.toDate() | date : 'shortDate'}} - </span>
+                              <span>{{item.cityNeighborhood}}</span>
                             </p>
                             <a class="chip-icon-btn mini-btn">Delete</a>
                           </div>
@@ -193,8 +133,8 @@
                 </div>
               </div>
 
-              <div class="full-card">
-                <div class="col-12" *ngFor="let item of card">
+              <div class="full-card" *ngIf="viewType == 'list'">
+                <div class="col-12" *ngFor="let item of data">
                   <div class="row">
                     <div class="col-12 col-md-12 col-lg-12">
                       <div class="adds-inner pt-3">
@@ -205,11 +145,11 @@
                           </div>
                           <div class="col-8 col-md-7 col-lg-9">
                             <div class="card-body">
-                              <h5 class="card-title">{{item.name}}</h5>
+                              <h5 class="card-title">{{item.postingTitle}}</h5>
                               <p>
                                 <i class="far fa-star"></i>
-                                <span>{{item.date}}</span>
-                                <span>{{item.location}}</span>
+                                <span>{{item.createdAt.toDate() | date : 'shortDate'}} - </span>
+                                <span>{{item.cityNeighborhood}}</span>
                               </p>
                               <a class="chip-icon-btn mini-btn">Delete</a>
                             </div>
