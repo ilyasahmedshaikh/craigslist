@@ -21,6 +21,8 @@ export class ViewPostingsComponent implements OnInit {
 
   viewType: string = 'list';
 
+  showCategoriesBool: boolean = false;
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -31,6 +33,8 @@ export class ViewPostingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.routedData);
+    
     this.formInit();
 
     if(this.routedData) this.getPostings();
@@ -39,14 +43,41 @@ export class ViewPostingsComponent implements OnInit {
 
   formInit() {
     this.viewPostingForm = this.fb.group({
-      categoryName: ['', Validators.required],
-      postingType: ['', Validators.required],
-      postingTypeAll: ['', Validators.required],
-      accountPost: ['', Validators.required],
-      categories: [false, Validators.required],
-      searchTitles: [false, Validators.required],
-      type: [false, Validators.required],
-      list: ['', Validators.required]
+      searchTitles: [false],
+      hasImage: [false],
+      postedToday: [''],
+      bundleDuplicate: [''],
+      includeNearby: [''],
+      // housin
+      pMin: [''],
+      pMax: [''],
+      bedMin: [''],
+      bedMax: [''],
+      bathMin: [''],
+      bathMax: [''],
+      catsOk: [false],
+      dogsOk: [false],
+      furnished: [false],
+      noSmoking: [false],
+      wheelChairAccessible: [false],
+      airConditioning: [false],
+      evCharging: [false],
+      // jobs 
+      internship: [false],
+      nonProfit: [false],
+      telecommute: [false],
+      fullTime: [false],
+      partTime: [false],
+      conract: [false],
+      emplyeesChoice: [false],
+      // for sale 
+      makeNmodel: [''],
+      new: [false],
+      likeNew: [false],
+      excellent: [false],
+      good: [false],
+      fair: [false],
+      salvage: [false],
     });
   }
 
@@ -74,6 +105,10 @@ export class ViewPostingsComponent implements OnInit {
         console.log(res);
       })
     }
+  }
+
+  onExpandCategories() {
+    this.showCategoriesBool = !this.showCategoriesBool;
   }
 
 }

@@ -1,52 +1,5 @@
 <div class="view-posting">
   <form [formGroup]="viewPostingForm">
-    <div class="top-bar">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-8 col-lg-6">
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <select class="form-control" formControlName="categoryName">
-                  <option selected>Rio De Janerio</option>
-                  <option>Belo Horizonte</option>
-                  <option>Sao Paulo</option>
-                </select>
-              </div>
-              <div class="form-group col-md-4">
-                <select class="form-control" formControlName="postingType">
-                  <option selected>Community</option>
-                  <option>Events</option>
-                  <option>For Sale</option>
-                  <option>Services</option>
-                  <option>Jobs</option>
-                  <option>Gigs</option>
-                </select>
-              </div>
-              <div class="form-group col-md-4">
-                <select class="form-control" formControlName="postingTypeAll">
-                  <option selected>All</option>
-                  <option>Activity Partners</option>
-                  <option>Child Care</option>
-                  <option>Lost & Found</option>
-                  <option>Rants & Raves</option>
-                  <option>Volunteers</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4 col-lg-6">
-            <div class="form-row">
-              <div class="form-group">
-                <select class="form-control" formControlName="accountPost">
-                  <option selected>Account</option>
-                  <option>Post</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="view-posting-content">
       <div class="container">
 
@@ -56,27 +9,209 @@
               <a href="#">Community</a>
 
               <div class="show-category pt-3">
-                <a href="#"><i class="fas fa-plus"></i> Show 14 Categories</a>
+                <a class="cursor-pointer" (click)="onExpandCategories()"><i class="fas fa-plus"></i> Show {{categories.length}} Categories</a>
 
-                <div class="form-check pt-2" *ngFor="let item of categories">
-                  <input class="form-check-input" type="checkbox" [value]="item.id" formControlName="categories">
-                  <label class="form-check-label" for="flexCheckChecked">
-                    {{item.name}}
-                  </label>
+                <div class="categories-list-side" [ngClass]="{'active': showCategoriesBool}">
+                  <div class="form-check pt-2" *ngFor="let item of categories">
+                    <input class="form-check-input" type="checkbox" [value]="item.id">
+                    <label class="form-check-label">
+                      {{item.name}}
+                    </label>
+                  </div>
                 </div>
 
                 <div class="pt-4">
-                  <a href="#"><i class="fas fa-play"></i> Carshare Type</a>
                   <div class="form-check pt-2">
-                    <input class="form-check-input" type="checkbox" value="" formControlName="type">
-                    <label class="form-check-label" for="flexCheckChecked">
-                      Journey offered
+                    <input class="form-check-input" type="checkbox" value="searchTitles" formControlName="searchTitles">
+                    <label class="form-check-label">
+                      Search Titles Only
                     </label>
                   </div>
                   <div class="form-check pt-2">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label" for="flexCheckChecked">
-                      Journey offered
+                    <input class="form-check-input" type="checkbox" value="hasImage" formControlName="hasImage">
+                    <label class="form-check-label">
+                      Has Image
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" value="postedToday" formControlName="postedToday">
+                    <label class="form-check-label">
+                      Posted Today
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" value="bundleDuplicate" formControlName="bundleDuplicate">
+                    <label class="form-check-label">
+                      Bundle Duplicates
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" value="includeNearby" formControlName="includeNearby">
+                    <label class="form-check-label">
+                      Include Nearby Areas
+                    </label>
+                  </div>
+                </div>
+
+                <div class="pt-4" *ngIf="routedData.name == 'Housing' || routedData.name == 'For Sale'">
+                  <label>Price</label>
+                  <div class="d-flex justify-content-space-between">
+                    <input class="form-control mr-2" type="text" formControlName="pMin" placeholder="Min">
+                    <input class="form-control" type="text" formControlName="pMax" placeholder="Max">
+                  </div>
+                </div>
+
+                <div *ngIf="routedData.name == 'Housing'">
+                  <div class="pt-2">
+                    <label>Bed Rooms</label>
+                    <div class="d-flex justify-content-space-between">
+                      <input class="form-control mr-2" type="text" formControlName="bedMin" placeholder="Min">
+                      <input class="form-control" type="text" formControlName="bedMax" placeholder="Max">
+                    </div>
+                  </div>
+  
+                  <div class="pt-2">
+                    <label>Bath Rooms</label>
+                    <div class="d-flex justify-content-space-between">
+                      <input class="form-control mr-2" type="text" formControlName="bathMin" placeholder="Min">
+                      <input class="form-control" type="text" formControlName="bathMax" placeholder="Max">
+                    </div>
+                  </div>
+  
+                  <div class="pt-4">
+                    <div class="form-check pt-2">
+                      <input class="form-check-input" type="checkbox"  name="catsOk" value="Cats Ok" formControlName="catsOk">
+                      <label class="form-check-label">
+                        Cats Ok
+                      </label>
+                    </div>
+                    <div class="form-check pt-2">
+                      <input class="form-check-input" type="checkbox" name="dogsOk" value="Dogs Ok" formControlName="dogsOk">
+                      <label class="form-check-label">
+                        Dogs Ok
+                      </label>
+                    </div>
+                    <div class="form-check pt-2">
+                      <input class="form-check-input" type="checkbox" name="furnished" value="Furnished" formControlName="furnished">
+                      <label class="form-check-label">
+                        Furnished
+                      </label>
+                    </div>
+                    <div class="form-check pt-2">
+                      <input class="form-check-input" type="checkbox" name="noSmoking" value="No Smoking" formControlName="noSmoking">
+                      <label class="form-check-label">
+                        No Smoking
+                      </label>
+                    </div>
+                    <div class="form-check pt-2">
+                      <input class="form-check-input" type="checkbox" name="wheelChairAccessible" value="Wheel Chair Accessible" formControlName="wheelChairAccessible">
+                      <label class="form-check-label">
+                        Wheel Chair Accessible
+                      </label>
+                    </div>
+                    <div class="form-check pt-2">
+                      <input class="form-check-input" type="checkbox" name="airConditioning" value="Air Conditioning" formControlName="airConditioning">
+                      <label class="form-check-label">
+                        Air Conditioning
+                      </label>
+                    </div>
+                    <div class="form-check pt-2">
+                      <input class="form-check-input" type="checkbox" name="evCharging" value="EV Charging" formControlName="evCharging">
+                      <label class="form-check-label">
+                        EV Charging
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="routedData.name == 'Jobs'">
+                  <div class="form-check pt-4">
+                    <input class="form-check-input" type="checkbox" name="internship" value="internship" formControlName="internship">
+                    <label class="form-check-label">
+                      Internship
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="nonProfit" value="nonProfit" formControlName="nonProfit">
+                    <label class="form-check-label">
+                      Non-Profit
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="telecommute" value="telecommute" formControlName="telecommute">
+                    <label class="form-check-label">
+                      Telecommute
+                    </label>
+                  </div>
+
+                  <p class="pt-4">Employment Type</p>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="fullTime" value="fullTime" formControlName="fullTime">
+                    <label class="form-check-label">
+                      Full Time
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="partTime" value="partTime" formControlName="partTime">
+                    <label class="form-check-label">
+                      Part Time
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="conract" value="conract" formControlName="conract">
+                    <label class="form-check-label">
+                      Contract
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="emplyeesChoice" value="emplyeesChoice" formControlName="emplyeesChoice">
+                    <label class="form-check-label">
+                      Employees Choice
+                    </label>
+                  </div>
+                </div>
+
+                <div *ngIf="routedData.name == 'For Sale'">
+                  <div class="form-group pt-2">
+                    <label class="form-check-label">Make and Model</label>
+                    <input class="form-control" type="text" formControlName="makeNmodel" placeholder="make/model">
+                  </div>
+
+                  <p class="pt-4">Condition</p>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="new" value="new" formControlName="new">
+                    <label class="form-check-label">
+                      New
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="likeNew" value="likeNew" formControlName="likeNew">
+                    <label class="form-check-label">
+                      Like New
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="excellent" value="excellent" formControlName="excellent">
+                    <label class="form-check-label">
+                      Excellent
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="good" value="good" formControlName="good">
+                    <label class="form-check-label">
+                      Good
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="fair" value="fair" formControlName="fair">
+                    <label class="form-check-label">
+                      Fair
+                    </label>
+                  </div>
+                  <div class="form-check pt-2">
+                    <input class="form-check-input" type="checkbox" name="salvage" value="salvage" formControlName="salvage">
+                    <label class="form-check-label">
+                      Salvage
                     </label>
                   </div>
                 </div>
@@ -158,6 +293,10 @@
                 </div>
               </div>
 
+              <div class="text-center">
+                <img class="no-data" src="assets/img/no-data.png" alt="no data found" />
+                <p class="text-black-50 pt-3">No Data Found for - {{routedData.name}}</p>
+              </div>
             </div>
           </div>
         </div>

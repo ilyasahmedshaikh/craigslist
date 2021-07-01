@@ -104,6 +104,15 @@
   padding-right: 5px;
 }
 
+.categories-list-side {
+  height: 0;
+  visibility: hidden;
+  &.active {
+    height: auto;
+    visibility: visible;
+  }
+}
+
 @media screen and (max-width: 19200px)
 {
   .form-row{
@@ -118,12 +127,6 @@
     height: 300px;
   }
 }
-
-@media screen and (max-width: 600px)
-{
-
-}
-
 
 
 
