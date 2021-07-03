@@ -4,35 +4,37 @@
 
       <div class="col-12">
         <div class="print">
-          <a class="chip-icon-btn">Print</a>
+          <a class="chip-icon-btn" (click)="printComponent('postingDetail')">Print</a>
         </div>
       </div>
 
-      <div class="col-12">
+      <div class="col-12" id="postingDetail">
         <div class="posting-inner">
-          <h4>Darkwave group seeks representation. <small>-  Berlin</small></h4>
+          <h4>{{data.postingTitle}} <small>-  Berlin</small></h4>
+          <h4>{{data.price}}</h4>
           <div class="icon pt-1">
             <a href="#" class="text-warning"> <i class="fas fa-star"></i></a>
             <a href="#" class="text-primary"> <i class="fas fa-flag"></i></a>
             <a href="#" class="text-success"> <i class="fas fa-heart"></i></a>
             <a href="#" class="text-danger"> <i class="fas fa-trash"></i></a>
-            <small class="pr-4">20-May-2021</small>
+            <small class="pr-4">{{data.createdAt.toDate() | date: 'medium'}}</small>
           </div>
-          <img class="pt-3" src="assets/img/add5.jpg">
-          <p class="pt-4">Hey there..</p>
-          <p>We are a Berlin based collective and we have worked in different gothic and darkwave projects for over quite a few years and we are seeking Berlin based management for an upcoming project nearing recording completion.</p>
-          <p>We are happy to discuss details and the music of this post speaks to you..</p>
-          <p>Im not part of the “never finish the work & all talk”wave of musicians that’s aren’t actually “artists”..</p>
-          <p>Im serious about the work and the future..</p>
-          <p>If you want to get involved in something with potential for growth and marketing please reach out and let’s talk..</p>
-          <p>Please be serious and committed to business as we are...</p>
-          <p>Thank you...</p>
+          <img class="pt-3" src="{{data.image}}">
+          <p class="pt-4">{{data.description}}</p>
+          <p>Thank you.</p>
 
           <ul class="pt-2">
-            <li>do NOT contact me with unsolicited services or offers.</li>
+            <li>Don't contact me with unsolicited services or offers.</li>
           </ul>
+
+          <div class="pt-4" *ngIf="data.showMyNumber">
+            <p>Contact Details:</p>
+            <p class="py-2"><i class="far fa-user pr-3"></i> <strong>{{data.contactName}}</strong></p>
+            <p><i class="fas fa-mobile-alt pr-3"></i> <strong>{{data.extension}} {{data.phoneNumber}}</strong></p>
+          </div>
+
           <div class="pt-4">
-            <small class="pr-4">Post id: 7311844073</small>
+            <small class="pr-4">Post id: <strong>{{data.id}}</strong></small>
             <a class="chip-icon-btn mr-2">Reply</a>
             <a class="chip-icon-btn">Email to friend</a>
           </div>

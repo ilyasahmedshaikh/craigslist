@@ -34,8 +34,6 @@ export class ViewPostingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.routedData);
-    
     this.formInit();
 
     if(this.routedData) this.getPostings();
@@ -91,26 +89,27 @@ export class ViewPostingsComponent implements OnInit {
       // get categories by postingId
       this.api.getWithQuery(this.config.collections.categories, 'postingId', "==", this.routedData.id).subscribe(res => {
         this.categories = res;
-        console.log(res);
       })
 
       // get posts related to selected posting topic
       this.api.getWithQuery(this.config.collections.posts, 'postingId', "==", this.routedData.id).subscribe(res => {
         this.data = res;
-        console.log(this.data);
       })
     }
 
     if (this.routedType == 'category') {
       this.api.getWithQuery(this.config.collections.posts, 'categoryId', "==", this.routedData.id).subscribe(res => {
         this.data = res;
-        console.log(res);
       })
     }
   }
 
   onExpandCategories() {
     this.showCategoriesBool = !this.showCategoriesBool;
+  }
+
+  viewDetailed(item) {
+    this.router.navigate(['/posting/posting-detail'], { state: { data: item } });
   }
 
 }
