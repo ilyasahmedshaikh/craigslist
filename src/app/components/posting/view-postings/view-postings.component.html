@@ -6,17 +6,19 @@
         <div class="row">
           <div class="col-12 col-md-4 col-lg-3">
             <div class="category">
-              <a href="#">Community</a>
+              <a><strong>{{routedData.name}}</strong></a>
 
               <div class="show-category pt-3">
-                <a class="cursor-pointer" (click)="onExpandCategories()"><i class="fas fa-plus"></i> Show {{categories.length}} Categories</a>
+                <div *ngIf="routedType == 'posting'">
+                  <a class="cursor-pointer" (click)="onExpandCategories()"><i class="fas fa-plus"></i> Show {{categories.length}} Categories</a>
 
-                <div class="categories-list-side" [ngClass]="{'active': showCategoriesBool}">
-                  <div class="form-check pt-2" *ngFor="let item of categories">
-                    <input class="form-check-input" type="checkbox" [value]="item.id">
-                    <label class="form-check-label">
-                      {{item.name}}
-                    </label>
+                  <div class="categories-list-side" [ngClass]="{'active': showCategoriesBool}">
+                    <div class="form-check pt-2" *ngFor="let item of categories">
+                      <input class="form-check-input" type="checkbox" [value]="item.id">
+                      <label class="form-check-label">
+                        {{item.name}}
+                      </label>
+                    </div>
                   </div>
                 </div>
 
@@ -228,8 +230,8 @@
                   <div class="col-6 col-lg-4">
                     <div class="form-group">
                       <select class="form-control" (change)="onChangeViewType($event)">
-                        <option value="list">List</option>
-                        <option value="thumb" selected>Thumb</option>
+                        <option value="list" selected>List</option>
+                        <option value="thumb">Thumb</option>
                       </select>
                     </div>
                   </div>
@@ -252,7 +254,7 @@
                             <p><small>${{item.price}}</small></p>
                             <p>
                               <i class="far fa-star"></i>
-                              <span>{{item.createdAt.toDate() | date : 'shortDate'}} - </span>
+                              <span>{{item.createdAt.toDate() | date : 'medium'}} - </span>
                               <span>{{item.cityNeighborhood}}</span>
                             </p>
                             <a class="chip-icon-btn mini-btn">Delete</a>
@@ -279,7 +281,7 @@
                               <h5 class="card-title">{{item.postingTitle}}</h5>
                               <p>
                                 <i class="far fa-star"></i>
-                                <span>{{item.createdAt.toDate() | date : 'shortDate'}} - </span>
+                                <span>{{item.createdAt.toDate() | date : 'medium'}} - </span>
                                 <span>{{item.cityNeighborhood}}</span>
                               </p>
                               <a class="chip-icon-btn mini-btn">Delete</a>
@@ -293,7 +295,7 @@
                 </div>
               </div>
 
-              <div class="text-center">
+              <div class="text-center" *ngIf="data.length == 0">
                 <img class="no-data" src="assets/img/no-data.png" alt="no data found" />
                 <p class="text-black-50 pt-3">No Data Found for - {{routedData.name}}</p>
               </div>

@@ -30,6 +30,7 @@ export class ViewPostingsComponent implements OnInit {
     private api: ApiService,
   ) {
     this.routedData = this.router.getCurrentNavigation().extras.state.data;
+    this.routedType = this.router.getCurrentNavigation().extras.state.type;
   }
 
   ngOnInit(): void {
@@ -48,7 +49,7 @@ export class ViewPostingsComponent implements OnInit {
       postedToday: [''],
       bundleDuplicate: [''],
       includeNearby: [''],
-      // housin
+      // housing
       pMin: [''],
       pMax: [''],
       bedMin: [''],
@@ -102,6 +103,7 @@ export class ViewPostingsComponent implements OnInit {
 
     if (this.routedType == 'category') {
       this.api.getWithQuery(this.config.collections.posts, 'categoryId', "==", this.routedData.id).subscribe(res => {
+        this.data = res;
         console.log(res);
       })
     }
