@@ -5,11 +5,14 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 import { LoaderComponent } from './loader/loader.component';
 
+import { SearchFilterPipe } from '../core/pipes/searchFilter/search-filter.pipe';
+
 @NgModule({
   declarations: [
     SearchBarComponent,
     ImageUploaderComponent,
-    LoaderComponent
+    LoaderComponent,
+    SearchFilterPipe
   ],
   imports: [
     CommonModule,
@@ -19,7 +22,8 @@ import { LoaderComponent } from './loader/loader.component';
   exports: [
     SearchBarComponent,
     ImageUploaderComponent,
-    LoaderComponent
+    LoaderComponent,
+    SearchFilterPipe
   ]
 })
 export class SharedModule { }
