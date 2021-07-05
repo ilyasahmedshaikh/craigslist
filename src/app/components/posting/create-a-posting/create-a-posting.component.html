@@ -15,7 +15,7 @@
                     <label>Posting Title</label>
                     <input type="text" class="form-control" placeholder="Posting Title" formControlName="postingTitle">
                   </div>
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-3" *ngIf="postingNcategory.posting.name != 'Jobs'">
                     <label>Price</label>
                     <input type="number" class="form-control" placeholder="$ Price" formControlName="price">
                   </div>

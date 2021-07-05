@@ -8,6 +8,9 @@ ng serve --host 0.0.0.0
 ipconfig
 <!-- 192.168.0.109:4200 -->
 
+# Google Maps - geocoding
+https://developers.google.com/maps/documentation/geocoding/overview?csw=1#ReverseGeocoding
+
 # Setup FIrebase in angular app
 1. npm install firebase
 2. ng add @angular/fire

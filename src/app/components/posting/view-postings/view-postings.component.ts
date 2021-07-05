@@ -109,7 +109,7 @@ export class ViewPostingsComponent implements OnInit {
   }
 
   viewDetailed(item) {
-    this.router.navigate(['/posting/posting-detail'], { state: { data: item } });
+    this.router.navigate(['/posting/posting-detail'], { state: { data: item, posting: this.routedData } });
   }
 
 }

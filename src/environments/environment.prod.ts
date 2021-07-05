@@ -1,5 +1,7 @@
 export const environment = {
   production: true,
+  google_maps_api: 'AIzaSyBWGkmY3rOQ2BC5Bk0MGYQ_dJBH1beWoj0',
+  google_geocode_base_url: 'https://maps.googleapis.com/maps/api/geocode/json',
   firebase: {
     apiKey: "AIzaSyD6plbdNBIzMpWLRqYQhGIljJVuC9-vS3s",
     authDomain: "craigslist-a9e4c.firebaseapp.com",

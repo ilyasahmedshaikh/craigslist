@@ -1,4 +1,4 @@
-<div class="posting-detail">
+<div class="posting-detail" id="postingDetail">
   <div class="container">
     <div class="row">
 
@@ -8,10 +8,10 @@
         </div>
       </div>
 
-      <div class="col-12" id="postingDetail">
+      <div class="col-6">
         <div class="posting-inner">
-          <h4>{{data.postingTitle}} <small>-  Berlin</small></h4>
-          <h4>{{data.price}}</h4>
+          <h4>{{data.postingTitle}}<small> - {{data.cityNeighborhood}}</small></h4>
+          <h6 *ngIf="posting.name != 'Jobs'">Price: {{data.price}}</h6>
           <div class="icon pt-1">
             <a href="#" class="text-warning"> <i class="fas fa-star"></i></a>
             <a href="#" class="text-primary"> <i class="fas fa-flag"></i></a>
@@ -19,7 +19,7 @@
             <a href="#" class="text-danger"> <i class="fas fa-trash"></i></a>
             <small class="pr-4">{{data.createdAt.toDate() | date: 'medium'}}</small>
           </div>
-          <img class="pt-3" src="{{data.image}}">
+          <img class="pt-3" *ngIf="data.image" src="{{data.image}}">
           <p class="pt-4">{{data.description}}</p>
           <p>Thank you.</p>
 
@@ -32,15 +32,166 @@
             <p class="py-2"><i class="far fa-user pr-3"></i> <strong>{{data.contactName}}</strong></p>
             <p><i class="fas fa-mobile-alt pr-3"></i> <strong>{{data.extension}} {{data.phoneNumber}}</strong></p>
           </div>
-
-          <div class="pt-4">
-            <small class="pr-4">Post id: <strong>{{data.id}}</strong></small>
-            <a class="chip-icon-btn mr-2">Reply</a>
-            <a class="chip-icon-btn">Email to friend</a>
+        </div>
+      </div>
+      
+      <div class="col-6 right-sec">
+        <div *ngIf="posting.name == 'Housing'">
+          <div class="py-2 list-item-right">
+            <p>Bathrooms</p>
+            <p><strong>{{data.bathRooms}}</strong></p>
           </div>
+          <div class="py-2 list-item-right">
+            <p>Bedrooms</p>
+            <p><strong>{{data.bedRooms}}</strong></p>
+          </div>
+  
+          <div class="chips">
+            <span class="badge badge-pill" [ngClass]="data.catsOk ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.catsOk" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.catsOk" class="fas fa-times-circle"></i>
+              Cats OK
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.dogsOk ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.dogsOk" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.dogsOk" class="fas fa-times-circle"></i>
+              Dogs OK
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.evCharging ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.evCharging" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.evCharging" class="fas fa-times-circle"></i>
+              EV Charging
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.furnished ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.furnished" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.furnished" class="fas fa-times-circle"></i>
+              Furnished
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.airConditioning ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.airConditioning" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.airConditioning" class="fas fa-times-circle"></i>
+              Air Conditioning
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.wheelChairAccessible ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.wheelChairAccessible" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.wheelChairAccessible" class="fas fa-times-circle"></i>
+              Wheelchair Accessible
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.noSmoking ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.noSmoking" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.noSmoking" class="fas fa-times-circle"></i>
+              Smoking
+            </span>
+          </div>
+  
+          <div class="pt-4 pb-2 list-item-right">
+            <p>Housing Type</p>
+            <p><strong>{{data.housingType}}</strong></p>
+          </div>
+          <div class="py-2 list-item-right">
+            <p>Sqft.</p>
+            <p><strong>{{data.sqft}}</strong></p>
+          </div>
+          <div class="py-2 list-item-right">
+            <p>Laundry</p>
+            <p><strong>{{data.laundry}}</strong></p>
+          </div>
+          <div class="py-2 list-item-right">
+            <p>Parking</p>
+            <p><strong>{{data.parking}}</strong></p>
+          </div>
+        </div>
+        
+        <div *ngIf="posting.name == 'For Sale'">
+          <div class="py-2 list-item-right">
+            <p>Condition</p>
+            <p><strong>{{data.condition}}</strong></p>
+          </div>
+          <div class="py-2 list-item-right">
+            <p>Make & Manufacturer</p>
+            <p><strong>{{data.makeManufacturer}}</strong></p>
+          </div>
+          <div class="py-2 list-item-right">
+            <p>Model Name & Number</p>
+            <p><strong>{{data.modelNameNumber}}</strong></p>
+          </div>
+          <div class="py-2 list-item-right">
+            <p>Size/Dimension</p>
+            <p><strong>{{data.sizeDimensions}}</strong></p>
+          </div>
+  
+          <div class="chips">
+            <span class="badge badge-pill" [ngClass]="data.cryptocurrency ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.cryptocurrency" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.cryptocurrency" class="fas fa-times-circle"></i>
+              Cryptocurrency
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.deliveryAvailable ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.deliveryAvailable" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.deliveryAvailable" class="fas fa-times-circle"></i>
+              Delivery Available
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.moreAdsLink ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.moreAdsLink" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.moreAdsLink" class="fas fa-times-circle"></i>
+              More Ad Links
+            </span>
+          </div>
+
+        </div>
+
+        <div *ngIf="posting.name == 'Jobs'">
+          <div class="py-2 list-item-right">
+            <p>Company Name</p>
+            <p><strong>{{data.companyName}}</strong></p>
+          </div>
+          <div class="py-2 list-item-right">
+            <p>Compensation</p>
+            <p><strong>{{data.compensation}}</strong></p>
+          </div>
+          <div class="py-2 list-item-right">
+            <p>Employment Type</p>
+            <p><strong>{{data.employmentType}}</strong></p>
+          </div>
+  
+          <div class="chips">
+            <span class="badge badge-pill" [ngClass]="data.directContact ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.directContact" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.directContact" class="fas fa-times-circle"></i>
+              Direct Contact by Recruiters
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.internship ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.internship" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.internship" class="fas fa-times-circle"></i>
+              Internship
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.nonProfit ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.nonProfit" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.nonProfit" class="fas fa-times-circle"></i>
+              Non Profit Org.
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.relocationAssistance ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.relocationAssistance" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.relocationAssistance" class="fas fa-times-circle"></i>
+              Relocation Assistance
+            </span>
+            <span class="badge badge-pill" [ngClass]="data.telecommutingOk ? 'badge-success' : 'badge-danger'">
+              <i *ngIf="data.telecommutingOk" class="fas fa-check-circle"></i>
+              <i *ngIf="!data.telecommutingOk" class="fas fa-times-circle"></i>
+              TeleCommuting Ok
+            </span>
+          </div>
+
         </div>
       </div>
 
+      <div class="col-12">
+        <div class="pt-4">
+          <small class="pr-4">Post id: <strong>{{data.id}}</strong></small>
+          <a class="chip-icon-btn mr-2">Reply</a>
+          <a class="chip-icon-btn">Email to friend</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

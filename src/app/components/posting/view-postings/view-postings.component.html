@@ -248,10 +248,13 @@
                     <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of data">
                       <div class="adds-inner pt-3">
                         <div class="card">
-                          <img class="card-img-top" src={{item.image}}>
+                          <img class="card-img-top" *ngIf="item.image; else placeholderImg" src={{item.image}}>
+                          <ng-template #placeholderImg>
+                            <img class="card-img-top" src="assets/img/image-placeholder.jpeg">
+                          </ng-template>
                           <div class="card-body">
                             <h5 class="card-title text-primary" (click)="viewDetailed(item)">{{item.postingTitle}}</h5>
-                            <p><small>${{item.price}}</small></p>
+                            <p *ngIf="routedData.name != 'Jobs'"><small>${{item.price}}</small></p>
                             <p>
                               <i class="far fa-star"></i>
                               <span>{{item.createdAt.toDate() | date : 'medium'}} - </span>
@@ -274,11 +277,15 @@
                         <div class="card">
                         <div class="row">
                           <div class="col-4 col-md-5 col-lg-3">
-                            <img class="card-img-top" src={{item.image}}>
+                            <img class="card-img-top" *ngIf="item.image; else placeholderImg" src={{item.image}}>
+                            <ng-template #placeholderImg>
+                              <img class="card-img-top" src="assets/img/image-placeholder.jpeg">
+                            </ng-template>
                           </div>
                           <div class="col-8 col-md-7 col-lg-9">
                             <div class="card-body">
                               <h5 class="card-title text-primary" (click)="viewDetailed(item)">{{item.postingTitle}}</h5>
+                              <p *ngIf="routedData.name != 'Jobs'"><small>${{item.price}}</small></p>
                               <p>
                                 <i class="far fa-star"></i>
                                 <span>{{item.createdAt.toDate() | date : 'medium'}} - </span>

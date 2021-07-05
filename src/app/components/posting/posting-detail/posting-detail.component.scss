@@ -26,6 +26,26 @@
 }
 
 .posting-detail .posting-inner img{
-  width: 45%;
+  width: 100%;
   height: auto;
+}
+
+.list-item-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.right-sec {
+  padding-top: 90px;
+}
+
+.chips .badge {
+  margin: 15px 10px 0 0;
+  font-size: 15px;
+  font-weight: 400;
 }
