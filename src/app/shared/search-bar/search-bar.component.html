@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12">
     <div class="search-bar">
-      <input type="text" placeholder="Search..." name="searchQuery" [(ngModel)]="searchQuery" (ngModelChange)="onChangeSearch($event)">
+      <input type="text" [placeholder]="placeHolder" name="searchQuery" [(ngModel)]="searchQuery" (ngModelChange)="onChangeSearch($event)">
       <i class="fas fa-search"></i>
     </div>
   </div>

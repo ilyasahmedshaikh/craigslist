@@ -44,7 +44,6 @@ export class HomepageComponent implements OnInit {
 
   getSearchQuery(event) {
     this.searchText = event;
-    console.log(this.searchText);
   }
 
   viewByPosting(item) {

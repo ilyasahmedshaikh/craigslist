@@ -222,7 +222,7 @@
           </div>
 
           <div class="col-12 col-md-8 col-lg-9">
-            <app-search-bar></app-search-bar>
+            <app-search-bar (getQuery)="getSearchQuery($event)" placeHolder="Search by posting name or title"></app-search-bar>
 
             <div class="posting-inner">
               <div class="col-12">
@@ -245,7 +245,7 @@
               <div class="adds" *ngIf="viewType == 'thumb'">
                 <div class="col-12">
                   <div class="row">
-                    <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of data">
+                    <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of data | searchFilter: searchText:'postingTitle'">
                       <div class="adds-inner pt-3">
                         <div class="card">
                           <img class="card-img-top" *ngIf="item.image; else placeholderImg" src={{item.image}}>
@@ -270,7 +270,7 @@
               </div>
 
               <div class="full-card" *ngIf="viewType == 'list'">
-                <div class="col-12" *ngFor="let item of data">
+                <div class="col-12" *ngFor="let item of data | searchFilter: searchText:'postingTitle'">
                   <div class="row">
                     <div class="col-12 col-md-12 col-lg-12">
                       <div class="adds-inner pt-3">

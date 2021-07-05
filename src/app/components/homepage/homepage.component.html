@@ -1,15 +1,15 @@
 <div class="homepage">
   <div class="container">
     <div class="search-bar">
-      <app-search-bar (getQuery)="getSearchQuery($event)"></app-search-bar>
+      <app-search-bar (getQuery)="getSearchQuery($event)" placeHolder="Search Posting Category by Name"></app-search-bar>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-4 col-4 mt-4" *ngFor="let item of postings | searchFilter: searchText">
+      <div class="col-12 col-md-4 col-4 mt-4" *ngFor="let item of postings">
         <div class="card">
           <div class="card-header text-center" (click)="viewByPosting(item)"><a>{{item.name}}</a></div>
           <div class="card-body row">
-            <div class="col-12 col-12 col-lg-12" *ngFor="let category of categories | searchFilter: searchText">
+            <div class="col-12 col-12 col-lg-12" *ngFor="let category of categories | searchFilter: searchText:'name'">
               <a class="text-primary" (click)="viewByCategory(category)" *ngIf="category.postingId == item.id">{{category.name}}</a>
             </div>
           </div>

@@ -15,13 +15,11 @@ export class ViewPostingsComponent implements OnInit {
   data: any = [];
   card: any = [];
   categories: any = [];
-
   routedData: any = {};
   routedType: string = "posting";
-
   viewType: string = 'list';
-
   showCategoriesBool: boolean = false;
+  searchText: string = '';
 
   constructor(
     private router: Router,
@@ -110,6 +108,10 @@ export class ViewPostingsComponent implements OnInit {
 
   viewDetailed(item) {
     this.router.navigate(['/posting/posting-detail'], { state: { data: item, posting: this.routedData } });
+  }
+
+  getSearchQuery(event) {
+    this.searchText = event;
   }
 
 }
