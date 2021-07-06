@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ConfigService } from '../../../core/http/config/config.service'
 import { ApiService } from '../../../core/http/api/api.service';
 import { PostingCategoryService } from '../../../core/http/posting-category/posting-category.service';
+import { CheckLoginService } from '../../../core/services/check-login/check-login.service';
 
 @Component({
   selector: 'app-create-a-posting',
@@ -29,11 +30,18 @@ export class CreateAPostingComponent implements OnInit {
     private config: ConfigService,
     private api: ApiService,
     private postingCategory: PostingCategoryService,
+    private loginSrv: CheckLoginService,
   ) {
     this.postingNcategory = this.router.getCurrentNavigation().extras.state;
   }
 
   ngOnInit(): void {
+    this.loginSrv.status.subscribe(res => {
+      if(!res) {
+        this.router.navigateByUrl('/auth/login');
+      }
+    });
+
     this.formInit();
 
     if (this.postingNcategory) {
