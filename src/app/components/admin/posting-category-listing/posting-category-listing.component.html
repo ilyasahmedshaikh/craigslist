@@ -11,14 +11,14 @@
         <div class="card-header text-center" routerLink="/posting/view-postings">
           <a>{{item.name}}</a>
           <a class="float-right ml-2" (click)="deletePosting()"><i class="fas fa-trash-alt"></i></a>
-          <a class="float-right" (click)="editPosting()"><i class="fas fa-pencil-alt"></i></a>
+          <!-- <a class="float-right" (click)="editPosting()"><i class="fas fa-pencil-alt"></i></a> -->
         </div>
         <div class="card-body row">
           <div class="col-12 col-12 col-lg-12" *ngFor="let category of categories">
             <div *ngIf="category.postingId == item.id">
               <a href="#">{{category.name}}</a>
               <a class="float-right ml-2" (click)="deleteCategory()"><i class="fas fa-trash-alt"></i></a>
-              <a class="float-right" (click)="editCategory()"><i class="fas fa-pencil-alt"></i></a>
+              <!-- <a class="float-right" (click)="editCategory()"><i class="fas fa-pencil-alt"></i></a> -->
             </div>
           </div>
         </div>
