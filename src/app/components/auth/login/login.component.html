@@ -28,7 +28,11 @@
                 </div>
             </div>
 
-            <a class="rounded-btn mt-2">Login</a>
+            <button class="rounded-btn mt-2"(click)="login()"
+              [disabled]="programForm.invalid" 
+              [ngClass]="{'disable-opacity': programForm.invalid}">
+              Login
+            </button>
         </form>
 
         <div class="new-account text-center">

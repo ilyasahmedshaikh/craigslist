@@ -1,0 +1,25 @@
+@import 'src/assets/scss/colours';
+
+.profile {
+    padding-top: 20px;
+    .image-container {
+        width: 150px;
+        height: 150px;
+        background: $defaultDark;
+        color: white;
+        border-radius: 50%;
+        display: block;
+        margin: auto;
+        position: relative;
+        .inner {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            h1 {
+                font-size: 70px;
+            }
+        }
+    }
+}

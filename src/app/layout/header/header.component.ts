@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { CheckLoginService } from '../../core/services/check-login/check-login.service';
 
 @Component({
   selector: 'app-header',
@@ -16,10 +17,10 @@ export class HeaderComponent implements OnInit {
   pageTitle: any = "";
   currentURL: string = "";
 
-
   constructor(
-    location: Location,
-    router: Router
+    private location: Location,
+    private router: Router,
+    private checkLogin: CheckLoginService,
   ) {
     router.events.subscribe((val) => {
       if(location.path() != ''){

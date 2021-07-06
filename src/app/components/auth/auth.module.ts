@@ -8,10 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent, ForgotPasswordComponent, CreateAccountComponent, ResetPasswordComponent],
+  declarations: [AuthComponent, LoginComponent, ForgotPasswordComponent, CreateAccountComponent, ResetPasswordComponent, ProfileComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
