@@ -116,25 +116,26 @@ export class CreateAPostingComponent implements OnInit {
       ...this.contactForm.value
     }
 
-    if (this.postingNcategory.posting.name == 'For Sale' || this.postingNcategory.posting.name == 'Community') {
+    if (this.postingNcategory.posting.name == 'For Sale') {
       data = {
         ...this.saleForm.value,
         ...basicInfo
       }
     }
-
-    if (this.postingNcategory.posting.name == 'Housing') {
+    else if (this.postingNcategory.posting.name == 'Housing') {
       data = {
         ...this.housingForm.value,
         ...basicInfo
       }
     }
-
-    if (this.postingNcategory.posting.name == 'Jobs') {
+    else if (this.postingNcategory.posting.name == 'Jobs') {
       data = {
         ...this.jobForm.value,
         ...basicInfo
       }
+    }
+    else {
+      data = { ...basicInfo }
     }
 
     let request = this.api.post(this.config.collections.posts, data);

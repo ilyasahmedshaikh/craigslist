@@ -11,32 +11,32 @@
             <div class="card">
               <div class="card-body">
                 <div class="form-row">
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-12">
                     <label>Posting Title</label>
                     <input type="text" class="form-control" placeholder="Posting Title" formControlName="postingTitle">
                   </div>
-                  <div class="form-group col-md-3" *ngIf="postingNcategory.posting.name != 'Jobs'">
+                  <div class="form-group col-md-4" *ngIf="postingNcategory.posting.name != 'Jobs'">
                     <label>Price</label>
                     <input type="number" class="form-control" placeholder="$ Price" formControlName="price">
                   </div>
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-4">
                     <label>City or Neighborhood</label>
                     <input type="text" class="form-control" placeholder="City or Neighborhood" formControlName="cityNeighborhood">
                   </div>
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-4">
                     <label>Postal Code</label>
                     <input type="text" class="form-control" placeholder="Postal Code" formControlName="postalCode">
                   </div>
                 </div>
                 <div class="form-group">
                   <label>Description</label>
-                  <textarea class="form-control" rows="3" placeholder="Type your description here..." formControlName="description"></textarea>
+                  <textarea class="form-control" rows="10" placeholder="Type your description here..." formControlName="description"></textarea>
                 </div>
               </div>
             </div>
           </form>
 
-          <form [formGroup]="saleForm" *ngIf="postingNcategory.posting.name == 'For Sale' || postingNcategory.posting.name == 'Community'">
+          <form [formGroup]="saleForm" *ngIf="postingNcategory.posting.name == 'For Sale'">
             <div class="card my-4">
               <div class="card-body">
                 <h6>Posting Details</h6>

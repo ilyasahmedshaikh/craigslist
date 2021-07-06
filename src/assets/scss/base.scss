@@ -28,6 +28,12 @@ a {
     height: 45px;
 }
 
+textarea {
+    &.form-control {
+        height: 100%;
+    }
+}
+
 textarea:focus,
 select,
 input[type="text"]:focus,

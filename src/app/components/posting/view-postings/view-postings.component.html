@@ -254,7 +254,7 @@
                           </ng-template>
                           <div class="card-body">
                             <h5 class="card-title text-primary" (click)="viewDetailed(item)">{{item.postingTitle}}</h5>
-                            <p *ngIf="routedData.name != 'Jobs'"><small>${{item.price}}</small></p>
+                            <p *ngIf="routedData.name != 'Jobs'"><small>Price: <strong>{{item.price == 0 ? 'Free' : item.price}}</strong></small></p>
                             <p>
                               <i class="far fa-star"></i>
                               <span>{{item.createdAt.toDate() | date : 'medium'}} - </span>
@@ -284,8 +284,8 @@
                           </div>
                           <div class="col-8 col-md-7 col-lg-9">
                             <div class="card-body">
-                              <h5 class="card-title text-primary" (click)="viewDetailed(item)">{{item.postingTitle}}</h5>
-                              <p *ngIf="routedData.name != 'Jobs'"><small>${{item.price}}</small></p>
+                              <h5 class="card-title text-primary text-truncate" (click)="viewDetailed(item)">{{item.postingTitle}}</h5>
+                              <p *ngIf="routedData.name != 'Jobs'"><small>Price: <strong>{{item.price == 0 ? 'Free' : item.price}}</strong></small></p>
                               <p>
                                 <i class="far fa-star"></i>
                                 <span>{{item.createdAt.toDate() | date : 'medium'}} - </span>

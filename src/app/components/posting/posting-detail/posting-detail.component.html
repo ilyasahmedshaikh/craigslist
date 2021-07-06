@@ -8,10 +8,10 @@
         </div>
       </div>
 
-      <div class="col-6">
+      <div [ngClass]="posting.name == 'Event/Class' ? 'col-12' : 'col-6'">
         <div class="posting-inner">
           <h4>{{data.postingTitle}}<small> - {{data.cityNeighborhood}}</small></h4>
-          <h6 *ngIf="posting.name != 'Jobs'">Price: {{data.price}}</h6>
+          <h6 *ngIf="posting.name != 'Jobs'">Price: <strong>{{data.price == 0 ? 'Free' : data.price}}</strong></h6>
           <div class="icon pt-1">
             <a href="#" class="text-warning"> <i class="fas fa-star"></i></a>
             <a href="#" class="text-primary"> <i class="fas fa-flag"></i></a>
@@ -19,7 +19,7 @@
             <a href="#" class="text-danger"> <i class="fas fa-trash"></i></a>
             <small class="pr-4">{{data.createdAt.toDate() | date: 'medium'}}</small>
           </div>
-          <img class="pt-3" *ngIf="data.image" src="{{data.image}}">
+          <img class="pt-3" [ngClass]="posting.name == 'Event/Class' ? 'w-50' : ''" *ngIf="data.image" src="{{data.image}}">
           <p class="pt-4">{{data.description}}</p>
           <p>Thank you.</p>
 
@@ -35,7 +35,7 @@
         </div>
       </div>
       
-      <div class="col-6 right-sec">
+      <div class="col-6 right-sec" *ngIf="posting.name != 'Event/Class'">
         <div *ngIf="posting.name == 'Housing'">
           <div class="py-2 list-item-right">
             <p>Bathrooms</p>
