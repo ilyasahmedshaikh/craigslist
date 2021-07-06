@@ -28,6 +28,12 @@ a {
     height: 45px;
 }
 
+textarea {
+    &.form-control {
+        height: 100%;
+    }
+}
+
 textarea:focus,
 select,
 input[type="text"]:focus,
@@ -92,4 +98,8 @@ input[type="color"]:focus,
   padding: 5px 20px;
   color: black;
   border-radius: 25px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
