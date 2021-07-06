@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit {
   pageTitle: any = "";
   currentURL: string = "";
 
+  userData: any = {};
+
   constructor(
     private location: Location,
     private router: Router,
@@ -36,6 +38,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getData();
   }
 
   toggleMenu() {
@@ -47,6 +50,10 @@ export class HeaderComponent implements OnInit {
 
     // enabling fade section
     this.fadeSection = !this.fadeSection;
+  }
+
+  getData() {
+    this.userData = this.checkLogin.getUserData();
   }
 
 }
