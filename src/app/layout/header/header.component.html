@@ -17,7 +17,7 @@
     <li><i class="fas fa-user pt-3"></i>
       <a (click)="toggleMenu()" class="create-btn" routerLink="/auth/login">my account</a>
     </li>
-    <li>
+    <li class="pt-3">
       <i class="fas fa-home"></i>
       <a class="create-btn" (click)="toggleMenu()" routerLink="/homepage">Homepage</a>
     </li>
@@ -25,7 +25,7 @@
       <i class="fas fa-plus"></i>
       <a (click)="toggleMenu()" routerLink="/posting/add-posting" class="create-btn">create a posting</a>
     </li>
-    <li class="pt-3">
+    <li>
       <i class="fas fa-plus"></i>
       <a (click)="toggleMenu()" routerLink="/admin/add-posting-category" class="create-btn">create types</a>
     </li>
@@ -34,7 +34,7 @@
       <a (click)="toggleMenu()" routerLink="/admin/posting-category-listing" class="create-btn">types listing</a>
     </li>
 
-    <li><a (click)="toggleMenu()" routerLink="/about/help">help, faq, abuse, legal</a></li>
+    <li class="pt-3"><a (click)="toggleMenu()" routerLink="/about/help">help, faq, abuse, legal</a></li>
     <li><a (click)="toggleMenu()" routerLink="/about/scam">avoid scams & fraud</a></li>
     <li><a (click)="toggleMenu()" routerLink="/about/safety">personal safety tips</a></li>
     <li><a (click)="toggleMenu()" routerLink="/about/terms-of-use">terms of use</a></li>
