@@ -30,13 +30,14 @@
               <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password">
             </div>
 
-              <button class="rounded-btn mt-4">
+              <button (click)="signup()"
+                class="rounded-btn w-100 mt-4"
+                [disabled]="programForm.invalid" 
+                [ngClass]="{'disable-opacity': programForm.invalid}">
                 Create Account
               </button>
           </form>
-          <!-- <div class="conditions">
-            <p>By signing up you accept the <a routerLink="/profile/privacy-policy">Privacy Policy</a> and <a routerLink="/auth/terms-conditions">Terms & Conditions</a></p>
-          </div> -->
+          
           <div class="login-account text-center">
             <span>Already have an Account</span>
             <a routerLink="/auth/login">
