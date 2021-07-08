@@ -53,4 +53,10 @@ export class PostingDetailComponent implements OnInit {
     document.body.innerHTML = originalContents;
   }
 
+  emailClicked() {
+    let email = prompt("Email:");
+    let cooked = `mailto:${email}?subject=${this.data.postingTitle}&body=${this.data.description}`
+    window.location.href = cooked;
+  }
+
 }
