@@ -187,9 +187,23 @@
 
       <div class="col-12">
         <div class="pt-4">
-          <small class="pr-4">Post id: <strong>{{data.id}}</strong></small>
-          <a class="chip-icon-btn mr-2">Reply</a>
-          <a class="chip-icon-btn" (click)="emailClicked()">Email to friend</a>
+          <p class="pb-2 border-bottom">Comments & Replies</p>
+          <div class="py-2 comments" *ngFor="let comment of comments">
+            <h6>{{comment.user}} - <small class="text-black-50">{{comment.createdAt}}</small></h6>
+            <p class="pt-1">{{comment.msg}}</p>
+          </div>
+          <div *ngIf="comments.length == 0">
+            <img class="no-data" src="../../../../assets/img/no-data.png" alt="no data" />
+          </div>
+          <div class="form-group pt-3">
+            <label>Comment/Reply</label>
+            <textarea [(ngModel)]="replyMsg" class="form-control" rows="4" (keyup)="setReply($event)"></textarea>
+          </div>
+          <div class="pt-2">
+            <a class="chip-icon-btn mr-2" (click)="reply()">Reply</a>
+            <a class="chip-icon-btn" (click)="emailClicked()">Email to friend</a>
+            <small class="float-right pl-4">Post id: <strong>{{data.id}}</strong></small>
+          </div>
         </div>
       </div>
     </div>

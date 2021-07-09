@@ -10,6 +10,7 @@ export class ConfigService {
     postings: "postings",
     categories: "categories",
     posts: "posts",
+    comments: "comments",
   }
 
   constructor() { }

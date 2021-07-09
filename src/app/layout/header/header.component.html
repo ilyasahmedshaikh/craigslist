@@ -25,11 +25,11 @@
       <i class="fas fa-plus"></i>
       <a (click)="toggleMenu()" routerLink="/posting/add-posting" class="create-btn">create a posting</a>
     </li>
-    <li *ngIf="userData.user_type == 'admin'" class="pt-3">
+    <li *ngIf="userData?.user_type == 'admin'" class="pt-3">
       <i class="fas fa-plus"></i>
       <a (click)="toggleMenu()" routerLink="/admin/add-posting-category" class="create-btn">create types</a>
     </li>
-    <li *ngIf="userData.user_type == 'admin'">
+    <li *ngIf="userData?.user_type == 'admin'">
       <i class="fas fa-plus"></i>
       <a (click)="toggleMenu()" routerLink="/admin/posting-category-listing" class="create-btn">types listing</a>
     </li>

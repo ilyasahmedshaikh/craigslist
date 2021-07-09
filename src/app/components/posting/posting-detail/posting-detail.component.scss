@@ -49,3 +49,10 @@
   font-size: 15px;
   font-weight: 400;
 }
+
+.comments { 
+  border-bottom: 1px solid #eeeeee;
+  &:last-child {
+    border-bottom: 0;
+  }
+}
