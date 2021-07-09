@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-12">
+      <div class="col-6">
+        <h2 *ngIf="flagged" class="text-danger">Marked as Flagged ({{flaggedCount}})</h2>
+      </div>
+      <div class="col-6">
         <div class="print">
           <a class="chip-icon-btn" (click)="printComponent('postingDetail')">Print</a>
         </div>
@@ -10,15 +13,21 @@
 
       <div [ngClass]="posting.name == 'Event/Class' ? 'col-12' : 'col-6'">
         <div class="posting-inner">
-          <h4>{{data.postingTitle}}<small> - {{data.cityNeighborhood}}</small></h4>
+          <h4>
+            <span *ngIf="!flagged">{{data.postingTitle}}</span>
+            <del *ngIf="flagged" class="text-black-50">{{data.postingTitle}}</del>
+            <small> - {{data.cityNeighborhood}}</small>
+          </h4>
+
           <h6 *ngIf="posting.name != 'Jobs'">Price: <strong>{{data.price == 0 ? 'Free' : data.price}}</strong></h6>
+
           <div class="icon pt-1">
-            <a href="#" class="text-warning"> <i class="fas fa-star"></i></a>
-            <a href="#" class="text-primary"> <i class="fas fa-flag"></i></a>
-            <a href="#" class="text-success"> <i class="fas fa-heart"></i></a>
+            <a class="text-warning" (click)="favouriteNflag('favourite')"> <i class="fas fa-star"></i></a>
+            <a class="text-primary" (click)="favouriteNflag('flag')"> <i class="fas fa-flag"></i></a>
             <a *ngIf="isOwner" class="text-danger" (click)="delete()"> <i class="fas fa-trash"></i></a>
             <small class="pr-4">{{data.createdAt.toDate() | date: 'medium'}}</small>
           </div>
+
           <img class="pt-3" [ngClass]="posting.name == 'Event/Class' ? 'w-50' : ''" *ngIf="data.image" src="{{data.image}}">
           <p class="pt-4">{{data.description}}</p>
           <p>Thank you.</p>

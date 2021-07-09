@@ -11,6 +11,8 @@ export class ConfigService {
     categories: "categories",
     posts: "posts",
     comments: "comments",
+    flagged: "flagged",
+    favourites: "favourites",
   }
 
   constructor() { }

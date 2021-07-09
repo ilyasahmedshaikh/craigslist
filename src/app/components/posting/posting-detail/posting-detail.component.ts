@@ -21,6 +21,8 @@ export class PostingDetailComponent implements OnInit {
   replyMsg: string = '';
   comments: any = [];
   isOwner: boolean = false;
+  flagged: boolean = false;
+  flaggedCount: number = 0;
 
   constructor(
     private router: Router,
@@ -36,6 +38,7 @@ export class PostingDetailComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getLocation();
+    this.seeIfFlagged();
     this.getComments();
 
     if(this.checkLogin.getUserData().id == this.data.user.id) this.isOwner = true;
@@ -56,6 +59,15 @@ export class PostingDetailComponent implements OnInit {
   getComments() {
     this.api.getWithQuery(this.config.collections.comments, 'postId', "==", this.data.id).subscribe(res => {
       this.comments = res;
+    })
+  }
+
+  seeIfFlagged() {
+    this.api.getWithQuery(this.config.collections.flagged, 'postId', "==", this.data.id).subscribe(res => {
+      if(res['length'] > 0) {
+        this.flagged = true;
+        this.flaggedCount = res['length'];
+      }
     })
   }
 
@@ -99,6 +111,24 @@ export class PostingDetailComponent implements OnInit {
   delete() {
     this.api.delete(this.config.collections.posts, this.data.id).then(() => {
       this.router.navigateByUrl("/homepage");
+    })
+    .catch((error) => {
+      alert(error);
+    });
+  }
+
+  favouriteNflag(type) {
+    let collection = type == 'flag' ? 'flagged' : 'favourites';
+
+    let data = {
+      postId: this.data.id,
+      type: type,
+      user: this.checkLogin.getUserData()
+    }
+
+    this.api.post(collection, data).then(() => {
+      alert('Marked as ' + type);
+      this.router.navigateByUrl('/homepage');
     })
     .catch((error) => {
       alert(error);

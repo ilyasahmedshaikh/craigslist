@@ -95,8 +95,6 @@ export class ViewPostingsComponent implements OnInit {
       // get posts related to selected posting topic
       this.api.getWithQuery(this.config.collections.posts, 'postingId', "==", this.routedData.id).subscribe(res => {
         this.data = res;
-        console.log(this.data);
-        
       })
     }
 
