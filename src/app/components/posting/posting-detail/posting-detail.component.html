@@ -16,7 +16,7 @@
             <a href="#" class="text-warning"> <i class="fas fa-star"></i></a>
             <a href="#" class="text-primary"> <i class="fas fa-flag"></i></a>
             <a href="#" class="text-success"> <i class="fas fa-heart"></i></a>
-            <a href="#" class="text-danger"> <i class="fas fa-trash"></i></a>
+            <a *ngIf="isOwner" class="text-danger" (click)="delete()"> <i class="fas fa-trash"></i></a>
             <small class="pr-4">{{data.createdAt.toDate() | date: 'medium'}}</small>
           </div>
           <img class="pt-3" [ngClass]="posting.name == 'Event/Class' ? 'w-50' : ''" *ngIf="data.image" src="{{data.image}}">

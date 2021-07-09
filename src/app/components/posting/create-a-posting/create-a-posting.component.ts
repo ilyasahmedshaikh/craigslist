@@ -120,6 +120,7 @@ export class CreateAPostingComponent implements OnInit {
       image: this.imagePreview,
       postingId: this.postingNcategory.posting.id,
       categoryId: this.postingNcategory.category.id,
+      user: this.loginSrv.getUserData(),
       ...this.createPostingForm.value,
       ...this.contactForm.value
     }

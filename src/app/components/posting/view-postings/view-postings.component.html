@@ -260,7 +260,7 @@
                               <span>{{item.createdAt.toDate() | date : 'medium'}} - </span>
                               <span>{{item.cityNeighborhood}}</span>
                             </p>
-                            <a class="chip-icon-btn mini-btn">Delete</a>
+                            <a *ngIf="checkLogin.getUserData().id == item.user.id" class="chip-icon-btn mini-btn">Delete</a>
                           </div>
                         </div>
                       </div>
@@ -291,7 +291,7 @@
                                 <span>{{item.createdAt.toDate() | date : 'medium'}} - </span>
                                 <span>{{item.cityNeighborhood}}</span>
                               </p>
-                              <a class="chip-icon-btn mini-btn">Delete</a>
+                              <a *ngIf="checkLogin.getUserData().id == item.user.id" class="chip-icon-btn mini-btn" (click)="delete(item.id)">Delete</a>
                             </div>
                           </div>
                         </div>

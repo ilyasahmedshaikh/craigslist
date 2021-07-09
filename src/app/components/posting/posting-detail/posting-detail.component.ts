@@ -18,9 +18,9 @@ export class PostingDetailComponent implements OnInit {
   posting: any = {};
   lat: number = 0;
   lng: number = 0;
-
   replyMsg: string = '';
   comments: any = [];
+  isOwner: boolean = false;
 
   constructor(
     private router: Router,
@@ -37,6 +37,9 @@ export class PostingDetailComponent implements OnInit {
   ngOnInit(): void {
     // this.getLocation();
     this.getComments();
+
+    if(this.checkLogin.getUserData().id == this.data.user.id) this.isOwner = true;
+    else this.isOwner = false;
   }
 
   getLocation() {
@@ -87,6 +90,15 @@ export class PostingDetailComponent implements OnInit {
 
     request.then(() => {
       this.getComments();
+    })
+    .catch((error) => {
+      alert(error);
+    });
+  }
+
+  delete() {
+    this.api.delete(this.config.collections.posts, this.data.id).then(() => {
+      this.router.navigateByUrl("/homepage");
     })
     .catch((error) => {
       alert(error);

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfigService } from '../../../core/http/config/config.service'
 import { ApiService } from '../../../core/http/api/api.service';
+import { CheckLoginService } from 'src/app/core/services/check-login/check-login.service';
 
 @Component({
   selector: 'app-view-postings',
@@ -20,12 +21,14 @@ export class ViewPostingsComponent implements OnInit {
   viewType: string = 'list';
   showCategoriesBool: boolean = false;
   searchText: string = '';
+  isOwner: boolean = false;
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private config: ConfigService,
     private api: ApiService,
+    private checkLogin: CheckLoginService
   ) {
     this.routedData = this.router.getCurrentNavigation().extras.state.data;
     this.routedType = this.router.getCurrentNavigation().extras.state.type;
@@ -114,6 +117,15 @@ export class ViewPostingsComponent implements OnInit {
 
   getSearchQuery(event) {
     this.searchText = event;
+  }
+
+  delete(id) {
+    this.api.delete(this.config.collections.posts, id).then(() => {
+      this.router.navigateByUrl("/homepage");
+    })
+    .catch((error) => {
+      alert(error);
+    });
   }
 
 }
