@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="search-bar">
-      <app-search-bar></app-search-bar>
+      <app-search-bar (getQuery)="getSearchQuery($event)" placeHolder="Search Posting by Name"></app-search-bar>
     </div>
     <div class="table-section">
       <table class="table">
@@ -28,113 +28,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">4 Dec 2020</th>
-            <td>Jet Powered Volkswagen Beetle</td>
-            <td>cars & trucks - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">12 Sep 2020</th>
-            <td>IKEA Lamp</td>
-            <td>furniture - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">29 Mar 2020</th>
-            <td>Toilet paper seeds</td>
-            <td>general for sale - by owner</td>
-            <td>hartford</td>
-          </tr>
-          <tr>
-            <th scope="row">4 Dec 2020</th>
-            <td>Jet Powered Volkswagen Beetle</td>
-            <td>cars & trucks - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">12 Sep 2020</th>
-            <td>IKEA Lamp</td>
-            <td>furniture - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">29 Mar 2020</th>
-            <td>Toilet paper seeds</td>
-            <td>general for sale - by owner</td>
-            <td>hartford</td>
-          </tr>
-          <tr>
-            <th scope="row">4 Dec 2020</th>
-            <td>Jet Powered Volkswagen Beetle</td>
-            <td>cars & trucks - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">12 Sep 2020</th>
-            <td>IKEA Lamp</td>
-            <td>furniture - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">29 Mar 2020</th>
-            <td>Toilet paper seeds</td>
-            <td>general for sale - by owner</td>
-            <td>hartford</td>
-          </tr>
-          <tr>
-            <th scope="row">4 Dec 2020</th>
-            <td>Jet Powered Volkswagen Beetle</td>
-            <td>cars & trucks - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">12 Sep 2020</th>
-            <td>IKEA Lamp</td>
-            <td>furniture - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">29 Mar 2020</th>
-            <td>Toilet paper seeds</td>
-            <td>general for sale - by owner</td>
-            <td>hartford</td>
-          </tr>
-          <tr>
-            <th scope="row">4 Dec 2020</th>
-            <td>Jet Powered Volkswagen Beetle</td>
-            <td>cars & trucks - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">12 Sep 2020</th>
-            <td>IKEA Lamp</td>
-            <td>furniture - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">29 Mar 2020</th>
-            <td>Toilet paper seeds</td>
-            <td>general for sale - by owner</td>
-            <td>hartford</td>
-          </tr>
-          <tr>
-            <th scope="row">4 Dec 2020</th>
-            <td>Jet Powered Volkswagen Beetle</td>
-            <td>cars & trucks - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">12 Sep 2020</th>
-            <td>IKEA Lamp</td>
-            <td>furniture - by owner</td>
-            <td>SF bay area</td>
-          </tr>
-          <tr>
-            <th scope="row">29 Mar 2020</th>
-            <td>Toilet paper seeds</td>
-            <td>general for sale - by owner</td>
-            <td>hartford</td>
+          <tr *ngFor="let item of data | searchFilter: searchText:'postingTitle'" (click)="viewDetailed(item)">
+            <td>{{item.createdAt.toDate() | date: 'short'}}</td>
+            <td>{{item.postingTitle}}</td>
+            <td>{{categories && findCategory(item)}}</td>
+            <td>{{item.cityNeighborhood}}</td>
           </tr>
         </tbody>
       </table>
